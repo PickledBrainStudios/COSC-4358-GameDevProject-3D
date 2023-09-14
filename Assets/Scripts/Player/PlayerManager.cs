@@ -16,12 +16,14 @@ public class PlayerManager : MonoBehaviour
     private Jump jump;
     
     private bool isDead = false;
+    private bool hasFlashLight = false;
+
+    private GameObject flashLight;
 
     private TextMeshProUGUI healthUI;
     private TextMeshProUGUI centerText;
 
-    private bool hasFlashLight = false;
-    private GameObject flashLight;
+
 
     // Start is called befosre the first frame update
     void Start()
