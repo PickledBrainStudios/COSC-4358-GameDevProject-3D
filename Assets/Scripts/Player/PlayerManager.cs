@@ -17,8 +17,6 @@ public class PlayerManager : MonoBehaviour
     
     private bool isDead = false;
 
-    private QTE01 qte01;
-
     private TextMeshProUGUI healthUI;
     private TextMeshProUGUI centerText;
 
@@ -57,6 +55,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy01"))
@@ -64,7 +63,6 @@ public class PlayerManager : MonoBehaviour
             qte01 = other.GetComponent<QTE01>();
             qte01.StartQTE(playerManager);
         }
-        /*
         if (other.gameObject.CompareTag("Enemy02"))
         {
             //qteScript.StartQTE();
@@ -73,8 +71,7 @@ public class PlayerManager : MonoBehaviour
         {
             //qteScript.StartQTE();
         }
-        */
-    }
+    }*/
 
     public void ToggleControl()
     {
@@ -98,7 +95,6 @@ public class PlayerManager : MonoBehaviour
     private void Death() {
         ToggleControl();
         centerText.text = "GAME OVER";
-        qte01.enabled = false;
     }
 
 }

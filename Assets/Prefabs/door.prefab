@@ -178,7 +178,6 @@ GameObject:
   - component: {fileID: 2402288719802698498}
   - component: {fileID: 1625175606143890490}
   - component: {fileID: 8769085823369151927}
-  - component: {fileID: 8855418751127869677}
   - component: {fileID: 5727553918459582228}
   m_Layer: 0
   m_Name: door
@@ -253,19 +252,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8855418751127869677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5026466027388646975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f28b1bc0ef20dfc4bac82480a2e22b6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextScene: Tutorial Scene
 --- !u!65 &5727553918459582228
 BoxCollider:
   m_ObjectHideFlags: 0

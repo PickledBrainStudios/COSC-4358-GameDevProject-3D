@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class QTE01 : MonoBehaviour
+public class QTE01 : MonoBehaviour, QQuickTimeEvent
 {
     //public float damageMultiplyer = 1f;
     public float qteTimeLimit = 3.0f;
@@ -12,6 +12,7 @@ public class QTE01 : MonoBehaviour
     private int currentQTEIndex = 0;
     private float qteTimer = 0.0f;
 
+    private GameObject player;
     private PlayerManager playerManager;
 
     void Update()
@@ -42,9 +43,10 @@ public class QTE01 : MonoBehaviour
         }
     }
 
-    public void StartQTE(PlayerManager other)
+    public void ActivateQTE()
     {
-        playerManager = other;
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerManager = player.GetComponent<PlayerManager>();
         playerManager.ToggleControl();
         qteActive = true;
         currentQTEIndex = 0;
@@ -54,10 +56,10 @@ public class QTE01 : MonoBehaviour
 
     private void ResetQTE()
     {
-        playerManager.ToggleControl();
         qteActive = false;
         currentQTEIndex = 0;
         qteTimer = 0.0f;
+        playerManager.ToggleControl();
     }
 
     public void StopQTE01()

@@ -8,6 +8,10 @@ interface CConsumable {
     public void Consume();
 }
 
+interface QQuickTimeEvent {
+    public void ActivateQTE();
+}
+
 public class Interactor : MonoBehaviour
 {
 
@@ -61,6 +65,10 @@ public class Interactor : MonoBehaviour
         //Debug.Log(other.gameObject.name);
         if(other.TryGetComponent(out CConsumable consumerObj)) {
             consumerObj.Consume();
+        }
+        if (other.TryGetComponent(out QQuickTimeEvent qteObj))
+        {
+            qteObj.ActivateQTE();
         }
     }
 }

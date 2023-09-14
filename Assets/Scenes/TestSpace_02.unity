@@ -1070,10 +1070,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: door
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8855418751127869677, guid: 240c1a6d2447b5f4bb63d9fbb4b44270, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5026466027388646975, guid: 240c1a6d2447b5f4bb63d9fbb4b44270,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1428221924}
   m_SourcePrefab: {fileID: 100100000, guid: 240c1a6d2447b5f4bb63d9fbb4b44270, type: 3}
 --- !u!4 &1428221922 stripped
 Transform:
@@ -1081,6 +1086,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1428221921}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1428221923 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5026466027388646975, guid: 240c1a6d2447b5f4bb63d9fbb4b44270,
+    type: 3}
+  m_PrefabInstance: {fileID: 1428221921}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1428221924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428221923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e85abc13ededcc4db7e057f1845633c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScene: TestSpace_01
 --- !u!1 &1501331499
 GameObject:
   m_ObjectHideFlags: 0
