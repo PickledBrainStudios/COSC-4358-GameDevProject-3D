@@ -23,6 +23,9 @@ public class PlayerManager : MonoBehaviour
     private TextMeshProUGUI healthUI;
     private TextMeshProUGUI centerText;
 
+    public AudioSource audioSource;
+    public AudioClip soundClip;
+
 
 
     // Start is called befosre the first frame update
@@ -49,7 +52,10 @@ public class PlayerManager : MonoBehaviour
     {
         healthUI.text = "Health: " + health.ToString();
 
-        if (Input.GetKeyDown(KeyCode.F) && hasFlashLight) {ToggleLight();}
+        if (Input.GetKeyDown(KeyCode.F) && hasFlashLight) 
+        {
+            ToggleLight();
+        }
 
         if (health <= 0 && !isDead) {
             Death();
@@ -88,10 +94,13 @@ public class PlayerManager : MonoBehaviour
     public void ActivateFlashLight() {
         hasFlashLight = true;
         flashLight.SetActive(true);
+        audioSource.PlayOneShot(soundClip);
     }
 
     public void ToggleLight() {
-        flashLight.SetActive(!flashLight.activeSelf);
+        audioSource.Stop();
+        audioSource.PlayOneShot(soundClip);
+        flashLight.SetActive(!flashLight.activeSelf);  
     }
 
     private void Death() {
