@@ -24,7 +24,6 @@ public class LightFlicker : MonoBehaviour
         fritzTimer = Random.Range(0, irregularity);
         llight = gameObject.GetComponent<Light>();
         baseIntensity = llight.intensity;
-        Debug.Log(baseIntensity);
     }
 
     // Update is called once per frame
