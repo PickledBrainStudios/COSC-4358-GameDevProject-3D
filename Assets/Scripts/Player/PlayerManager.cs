@@ -6,8 +6,9 @@ public class PlayerManager : MonoBehaviour
     [HideInInspector]
     public float health = 100;
 
-    [HideInInspector]
-    public PlayerManager playerManager;
+    //private PlayerManager playerManager;
+
+    public string spawnName = "Default_Spawn";
 
     private Interactor interactor;
     private Movement move;
@@ -26,12 +27,10 @@ public class PlayerManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip soundClip;
 
-
-
     // Start is called befosre the first frame update
     void Start()
     {
-        playerManager = this;
+        //playerManager = this;
         interactor = GetComponent<Interactor>();
         move = GetComponent<Movement>();
         look = GetComponent<Look>();
@@ -39,9 +38,7 @@ public class PlayerManager : MonoBehaviour
         jump = GetComponent<Jump>();
 
         healthUI = GameObject.Find("Health").GetComponent<TextMeshProUGUI>();
-
         centerText = GameObject.Find("CenterScreen").GetComponent<TextMeshProUGUI>();
-        centerText.text = "test";
 
         flashLight = GameObject.Find("FFlashLight");
         flashLight.SetActive(false);
@@ -63,27 +60,8 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    /*
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Enemy01"))
-        {
-            qte01 = other.GetComponent<QTE01>();
-            qte01.StartQTE(playerManager);
-        }
-        if (other.gameObject.CompareTag("Enemy02"))
-        {
-            //qteScript.StartQTE();
-        }
-        if (other.gameObject.CompareTag("Enemy03"))
-        {
-            //qteScript.StartQTE();
-        }
-    }*/
-
     public void ToggleControl()
     {
-        Debug.Log("TOGGLE CONTROL");
         move.enabled = !move.enabled;
         look.enabled = !look.enabled;
         crouch.enabled = !crouch.enabled;
@@ -107,5 +85,4 @@ public class PlayerManager : MonoBehaviour
         ToggleControl();
         centerText.text = "GAME OVER";
     }
-
 }

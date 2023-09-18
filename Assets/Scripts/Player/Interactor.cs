@@ -16,16 +16,14 @@ public class Interactor : MonoBehaviour
 {
 
     public Transform interactorSource;
-    public float interactRange;
+    public float interactRange = 2;
 
     private TextMeshProUGUI centerText;
 
     private void Start()
     {
         interactorSource = Camera.main.transform;
-        interactRange = 2;
         centerText = GameObject.Find("CenterScreen").GetComponent<TextMeshProUGUI>();
-
     }
 
     void Update()
