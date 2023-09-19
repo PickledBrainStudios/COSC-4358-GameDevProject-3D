@@ -7,17 +7,14 @@ interface IInteractable {
 interface CConsumable { 
     public void Consume();
 }
-
 interface QQuickTimeEvent {
     public void ActivateQTE();
 }
 
 public class Interactor : MonoBehaviour
 {
-
     public Transform interactorSource;
     public float interactRange = 2;
-
     private TextMeshProUGUI centerText;
 
     private void Start()
