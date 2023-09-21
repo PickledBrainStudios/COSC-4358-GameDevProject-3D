@@ -1,12 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-/*
+
 public class SceneLoader : MonoBehaviour
 {
-
-    public string VRSceneName;
-    public string TraditionalSceneName;
+    public string level01;
+    /*
     private void Awake()
     {
         XRGeneralSettings.Instance.Manager.InitializeLoader();
@@ -21,8 +20,11 @@ public class SceneLoader : MonoBehaviour
         XRGeneralSettings.Instance.Manager.DeinitializeLoader();
         SceneManager.LoadScene(TraditionalSceneName); // Replace "Your3DSceneName" with the actual name of your 3D scene.
     }
-
+    */
+    public void StartGame() {
+        SceneManager.LoadScene(level01);
+    }
 }
-*/
+
 
 
