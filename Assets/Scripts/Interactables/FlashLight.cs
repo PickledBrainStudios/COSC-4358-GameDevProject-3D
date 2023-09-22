@@ -3,12 +3,12 @@ using UnityEngine;
 public class FlashLight : MonoBehaviour, IInteractable
 {
     private GameObject player;
-    private PlayerManager playerManager;
+    private ControlFlashLight flashLight;
     public void Interact()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        playerManager = player.GetComponent<PlayerManager>();
-        playerManager.ActivateFlashLight();
+        flashLight = player.GetComponent<ControlFlashLight>();
+        flashLight.ActivateFlashLight();
         Destroy(this.gameObject);
     }
 }

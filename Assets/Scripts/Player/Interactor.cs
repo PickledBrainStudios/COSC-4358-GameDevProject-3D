@@ -13,8 +13,9 @@ interface QQuickTimeEvent {
 
 public class Interactor : MonoBehaviour
 {
-    public Transform interactorSource;
+    
     public float interactRange = 2;
+    private Transform interactorSource;
     private TextMeshProUGUI centerText;
 
     private void Start()
