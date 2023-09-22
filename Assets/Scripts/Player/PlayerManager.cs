@@ -26,6 +26,8 @@ public class PlayerManager : MonoBehaviour
     public AudioClip soundClip;
     private bool hasFlashLight = false;
 
+    private bool debugMode = false;
+
     // Start is called befosre the first frame update
     void Start()
     {
@@ -48,6 +50,19 @@ public class PlayerManager : MonoBehaviour
     {
         //Updates health UI with health variable
         healthUI.text = "Health: " + health.ToString();
+
+        if (Input.GetKeyDown(KeyCode.BackQuote))
+        {
+            if (debugMode)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+            else 
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
+            
+        }
 
         //Check to see if player presses F to toggle flash light
         if (Input.GetKeyDown(KeyCode.F) && hasFlashLight) 

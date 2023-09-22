@@ -10,6 +10,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
+        //Debug.Log("SpawnManager Active");
         player = GameObject.FindGameObjectWithTag("Player");
         playerManager = player.GetComponent<PlayerManager>();
         spawnLocation = GameObject.Find(playerManager.spawnName);
@@ -21,10 +22,12 @@ public class SpawnManager : MonoBehaviour
         
         if (player.transform.position != spawnLocation.transform.position)
         {
+            //Debug.Log("Spawn Player");
             player.transform.position = spawnLocation.transform.position;
         }
         else
         {
+            //Debug.Log("Player Spawned");
             playerManager.ToggleControl();
             Destroy(gameObject);
         }
