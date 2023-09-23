@@ -32,7 +32,7 @@ public class PlayerManager : MonoBehaviour
     private bool debugMode = false;
 
     // Start is called befosre the first frame update
-    void Start()
+    void Awake()
     {
         interactor = GetComponent<Interactor>();
         flashLight = GetComponent<ControlFlashLight>();
@@ -88,11 +88,18 @@ public class PlayerManager : MonoBehaviour
     //Toggles player scripts and controls, available to be used in other scripts
     public void ToggleControl()
     {
+        Debug.Log("IM TOGGLING CONTROL IN THE FUNCTION");
+        Debug.Log("move toggle");
         move.enabled = !move.enabled;
+        Debug.Log("look toggle");
         look.enabled = !look.enabled;
+        Debug.Log("crouch toggle");
         crouch.enabled = !crouch.enabled;
+        Debug.Log("jump toggle");
         jump.enabled = !jump.enabled;
+        Debug.Log("interactor toggle");
         interactor.enabled = !interactor.enabled;
+        Debug.Log("flash light toggle");
         flashLight.enabled = !flashLight.enabled;
     }
 

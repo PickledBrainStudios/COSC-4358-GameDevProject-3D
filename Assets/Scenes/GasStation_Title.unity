@@ -4478,7 +4478,6 @@ GameObject:
   - component: {fileID: 1124344486715982730}
   - component: {fileID: 2674911980548135212}
   - component: {fileID: 2674911980548135213}
-  - component: {fileID: 2674911980548135214}
   m_Layer: 0
   m_Name: Door_03
   m_TagString: Untagged
@@ -5177,20 +5176,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2728652555055584723, guid: 50d99b8cd4d7dec4699fd0ee87ba4611, type: 3}
---- !u!114 &2674911980548135214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1386790151752928939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e85abc13ededcc4db7e057f1845633c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextScene: GasStation_Interior
-  nextSpawnName: Interior_Spawn
 --- !u!23 &2714591688892578855
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10898,7 +10883,6 @@ GameObject:
   - component: {fileID: 3249862974312920271}
   - component: {fileID: 2742133614168314476}
   - component: {fileID: 9008491891007457861}
-  - component: {fileID: 9008491891007457862}
   m_Layer: 0
   m_Name: Door_01
   m_TagString: Untagged
@@ -10928,20 +10912,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6151747068533630916, guid: 50d99b8cd4d7dec4699fd0ee87ba4611, type: 3}
---- !u!114 &9008491891007457862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9008491891007457860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e85abc13ededcc4db7e057f1845633c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextScene: GasStation_Bathroom
-  nextSpawnName: Bathroom_Spawn
 --- !u!4 &9086123357188819397
 Transform:
   m_ObjectHideFlags: 0
