@@ -18,6 +18,7 @@ public class NoteController : MonoBehaviour, IInteractable
     private bool activeNote = false;
 
     private void Start()
+    {
         player = GameObject.FindGameObjectWithTag("Player");//find player
         playerManager = player.GetComponent<PlayerManager>();//find playerManager Script
         dialogueText = GameObject.FindWithTag("UI_CenterScreen_Dialogue").GetComponent<TextMeshProUGUI>();
