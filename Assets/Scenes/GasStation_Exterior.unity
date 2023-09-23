@@ -15,21 +15,21 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 1}
+  m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.09
+  m_FogDensity: 0.1
   m_LinearFogStart: 0
-  m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_LinearFogEnd: 8.24
+  m_AmbientSkyColor: {r: 0.04236383, g: 0.053399794, b: 0.0754717, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
+  m_AmbientMode: 3
+  m_SubtractiveShadowColor: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 97637a2a763b7f24b8da4e139e4144ca, type: 2}
   m_HaloStrength: 0.5
-  m_FlareStrength: 1
-  m_FlareFadeSpeed: 3
+  m_FlareStrength: 0.5
+  m_FlareFadeSpeed: 1
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
@@ -244,6 +244,41 @@ Transform:
   - {fileID: 683972114557583367}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &218922909
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 218922910}
+  m_Layer: 0
+  m_Name: Boundary
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &218922910
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218922909}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.8, y: 4.4, z: -40.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 374081147}
+  - {fileID: 1137942318}
+  - {fileID: 589011137}
+  - {fileID: 1505073350}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &316060364
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,12 +461,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 374081143}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -30.3, y: 4.4, z: 3.4}
-  m_LocalScale: {x: 1.4274467, y: 1.053, z: 13.383843}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -17.5, y: 0, z: 44}
+  m_LocalScale: {x: 1.4274466, y: 1.053, z: 13.383843}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 218922910}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &460313370
 GameObject:
@@ -1206,11 +1241,11 @@ Transform:
   m_GameObject: {fileID: 589011133}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -12.8, y: 4.4, z: -40.6}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.4274467, y: 1.053, z: 13.383843}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 218922910}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: -90}
 --- !u!1 &603728893
 GameObject:
@@ -1755,6 +1790,11 @@ PrefabInstance:
       propertyPath: m_enableVertexGradient
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5306907499800269945, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player_AudioSource
+      objectReference: {fileID: 0}
     - target: {fileID: 5521793452977172450, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -1823,7 +1863,12 @@ PrefabInstance:
     - target: {fileID: 7278096343228363359, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
         type: 3}
       propertyPath: m_TagString
-      value: Player_AudioSource
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 8085962930568964399, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8787259237344661092, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
         type: 3}
@@ -2481,11 +2526,11 @@ Transform:
   m_GameObject: {fileID: 1137942314}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0.7071068, z: -0, w: 0}
-  m_LocalPosition: {x: 13.3, y: 4.4, z: 3.4}
-  m_LocalScale: {x: 1.4274467, y: 1.053, z: 13.383843}
+  m_LocalPosition: {x: 26.1, y: 0, z: 44}
+  m_LocalScale: {x: 1.4274466, y: 1.053, z: 13.383843}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 218922910}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: -90}
 --- !u!1 &1192291814
 GameObject:
@@ -3251,11 +3296,11 @@ Transform:
   m_GameObject: {fileID: 1505073346}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -12.8, y: 4.4, z: 35.5}
+  m_LocalPosition: {x: 0, y: 0, z: 76.1}
   m_LocalScale: {x: 1.4274467, y: 1.053, z: 13.383843}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 218922910}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 90}
 --- !u!1 &1572195109
 GameObject:
@@ -5753,6 +5798,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextScene: GasStation_Interior
   nextSpawnName: Interior_Spawn
+  locked: 0
+  openClip: {fileID: 0}
+  lockedClip: {fileID: 0}
 --- !u!23 &2714591688892578855
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8735,15 +8783,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4683984486432495977}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 714c60088a025da4781427a3dc36e35a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e85abc13ededcc4db7e057f1845633c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showImage: 0
-  imageTexture: {fileID: 0}
-  introLine: Locked...
-  dialogueLines:
-  - I probably shouldn't be going in there anyways.
-  pickUpClip: {fileID: 8300000, guid: d9ad351b5c1cf1e439af407ea24025ef, type: 3}
+  nextScene: null
+  nextSpawnName: Default_Spawn
+  locked: 1
+  openClip: {fileID: 0}
+  lockedClip: {fileID: 8300000, guid: d9ad351b5c1cf1e439af407ea24025ef, type: 3}
 --- !u!23 &6494405818272743669
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11009,7 +11056,6 @@ GameObject:
   - component: {fileID: 754227644453188817}
   - component: {fileID: 4010690574062968007}
   - component: {fileID: 8922547953486886690}
-  - component: {fileID: 8922547953486886691}
   m_Layer: 0
   m_Name: Fuel_pump
   m_TagString: Untagged
@@ -11039,18 +11085,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4968806489507935743, guid: 50d99b8cd4d7dec4699fd0ee87ba4611, type: 3}
---- !u!114 &8922547953486886691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8922547953486886689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b84de900ee6f1645a4319396e92747b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &8969433524336805600
 Transform:
   m_ObjectHideFlags: 0
@@ -11189,6 +11223,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextScene: GasStation_Bathroom
   nextSpawnName: Bathroom_Spawn
+  locked: 0
+  openClip: {fileID: 8300000, guid: d0870c964a2354d8094ce31e769a7290, type: 3}
+  lockedClip: {fileID: 0}
 --- !u!4 &9086123357188819397
 Transform:
   m_ObjectHideFlags: 0
@@ -11302,7 +11339,4 @@ SceneRoots:
   - {fileID: 1572195113}
   - {fileID: 1054500055}
   - {fileID: 738108203}
-  - {fileID: 374081147}
-  - {fileID: 1137942318}
-  - {fileID: 589011137}
-  - {fileID: 1505073350}
+  - {fileID: 218922910}

@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PlayerManager : MonoBehaviour
     //This determine the spawn location of the player when they enter a new scene
     [HideInInspector]
     public string spawnName = "Default_Spawn";
+
+    public List<string> keyInventory;
 
     private Interactor interactor;
     private ControlFlashLight flashLight;
@@ -114,5 +117,9 @@ public class PlayerManager : MonoBehaviour
         ToggleControl();
         centerText.text = "GAME OVER";
         this.enabled = false;
+    }
+
+    public void KeyPickup(string key) {
+        keyInventory.Add(key);
     }
 }

@@ -18,7 +18,6 @@ public class NoteController : MonoBehaviour, IInteractable
     private bool activeNote = false;
 
     private void Start()
-    {
         player = GameObject.FindGameObjectWithTag("Player");//find player
         playerManager = player.GetComponent<PlayerManager>();//find playerManager Script
         dialogueText = GameObject.FindWithTag("UI_CenterScreen_Dialogue").GetComponent<TextMeshProUGUI>();
@@ -37,9 +36,8 @@ public class NoteController : MonoBehaviour, IInteractable
         //gameObject.GetComponent<Renderer>().enabled = false;
         if (showImage) { rawImage.enabled = true; }
         
-        
         //gameObject.SetActive(true);
-        currentLine = 0; // Reset dialogue
+        currentLine = 0; // Reset dialog
         activeNote = true;
     }
     private void Update()
