@@ -881,6 +881,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   spawnName: Default_Spawn
+  keyInventory: []
 --- !u!114 &8963944577750051661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -920,7 +921,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 2
-  cameraLocation: {x: 0, y: 0.9, z: 0}
+  cameraHeight: 1
+  rotationDirections: -1
+  acceleration: {x: 2000, y: 2000}
+  sensitivity: {x: 500, y: -500}
+  maxVerticalAngleFromHorizon: 85
+  inputLagPeriod: 0.005
 --- !u!114 &7125853364502961203
 MonoBehaviour:
   m_ObjectHideFlags: 0
