@@ -22,6 +22,9 @@ public class Movement : MonoBehaviour
     private float timer;
     private int i;
 
+    private Transform raySource;
+    private bool hardSurface = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,11 +32,31 @@ public class Movement : MonoBehaviour
         crouchScript = GetComponent<Crouch>();
         characterController = GetComponent<CharacterController>();
         timer = footstepTimer;
+
+        raySource = gameObject.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Ray r_0 = new(raySource.position, -raySource.up);//cast ray down
+        if (Physics.Raycast(r_0, out RaycastHit hitInfo_0))
+        {
+            if (hitInfo_0.collider.gameObject)
+            {
+                Debug.DrawRay(raySource.position, -raySource.up, Color.green);
+                Debug.Log(hitInfo_0.collider.tag);
+                if (hitInfo_0.collider.gameObject.tag == "HardSurface" || hitInfo_0.collider.gameObject.tag == "Untagged")
+                {
+                    hardSurface = true;
+                }
+                else 
+                {
+                    hardSurface = false;
+                }
+            }
+        }
+
         // Apply gravity
         playerVelocity.y += Physics.gravity.y * Time.deltaTime;
         characterController.Move(playerVelocity * Time.deltaTime);
@@ -58,27 +81,28 @@ public class Movement : MonoBehaviour
         {
             audioSource.volume = .5f;
             timer -= Time.deltaTime;
-            //i = Random.Range(0, soundClips.Length);
-            i = Random.Range(0, forestClips.Length);
+            if (hardSurface) { i = Random.Range(0, soundClips.Length); }
+            else { i = Random.Range(0, forestClips.Length); }
+            
 
             if (timer <= 0 && playerSpeed == walkSpeed)
             {
-                //audioSource.PlayOneShot(soundClips[i]);
-                audioSource.PlayOneShot(forestClips[i]);
+                if (hardSurface) { audioSource.PlayOneShot(soundClips[i]); }
+                else { audioSource.PlayOneShot(forestClips[i]); }
                 timer = footstepTimer;
             }
             else if (timer <= 0 && playerSpeed == sprintSpeed)
             {
                 audioSource.volume = audioSource.volume * 1.3f;
-                //audioSource.PlayOneShot(soundClips[i]);
-                audioSource.PlayOneShot(forestClips[i]);
+                if (hardSurface) { audioSource.PlayOneShot(soundClips[i]); }
+                else { audioSource.PlayOneShot(forestClips[i]); }
                 timer = footstepTimer * 0.6f;
             }
             else if (timer <= 0 && playerSpeed == crouchSpeed)
             {
                 audioSource.volume *= 0.3f;
-                //audioSource.PlayOneShot(soundClips[i]);
-                audioSource.PlayOneShot(forestClips[i]);
+                if (hardSurface) { audioSource.PlayOneShot(soundClips[i]); }
+                else { audioSource.PlayOneShot(forestClips[i]); }
                 timer = footstepTimer * 1.5f;
             }
         }

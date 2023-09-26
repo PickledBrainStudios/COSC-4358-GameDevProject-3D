@@ -696,7 +696,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -979,7 +979,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: df0f02816989a0348b801669beb67362, type: 3}
   - {fileID: 8300000, guid: 90f0af26cb589f64eaae4a27d022a1d3, type: 3}
   - {fileID: 8300000, guid: 8ce4499bbd5a13e408937e979191ac28, type: 3}
-  forestClips: []
+  forestClips:
+  - {fileID: 8300000, guid: 0609acde86b59a2458aaf135531f8756, type: 3}
+  - {fileID: 8300000, guid: fdfa07727ba18e146b0d737f16110ba5, type: 3}
+  - {fileID: 8300000, guid: e988fcf175fd1874db4f82c3b2d75db3, type: 3}
+  - {fileID: 8300000, guid: 98e005e2d5100484b88927d0803cb395, type: 3}
+  - {fileID: 8300000, guid: b3e9cdac26b78934197456d8199e30bc, type: 3}
+  - {fileID: 8300000, guid: ddc4973571f36404d95c23401b7d2f12, type: 3}
+  - {fileID: 8300000, guid: 8c9f76b14113ab640ab4b94535ad82e3, type: 3}
   footstepTimer: 0.6
 --- !u!114 &6239514998434710249
 MonoBehaviour:
