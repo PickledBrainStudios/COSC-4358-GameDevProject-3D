@@ -2105,6 +2105,119 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 87.476, y: 180, z: 90}
+--- !u!1001 &1342626903
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6409515137820730899, guid: e3bb6ddbe002eb140a4339e0fb06c72d,
+        type: 3}
+      propertyPath: m_Name
+      value: NPC01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639403692569047454, guid: e3bb6ddbe002eb140a4339e0fb06c72d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.41616
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639403692569047454, guid: e3bb6ddbe002eb140a4339e0fb06c72d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.41616
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639403692569047454, guid: e3bb6ddbe002eb140a4339e0fb06c72d,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.41616
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639403692569047454, guid: e3bb6ddbe002eb140a4339e0fb06c72d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639403692569047454, guid: e3bb6ddbe002eb140a4339e0fb06c72d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.132
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639403692569047454, guid: e3bb6ddbe002eb140a4339e0fb06c72d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -16.226519
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639403692569047454, guid: e3bb6ddbe002eb140a4339e0fb06c72d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.658133
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639403692569047454, guid: e3bb6ddbe002eb140a4339e0fb06c72d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639403692569047454, guid: e3bb6ddbe002eb140a4339e0fb06c72d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.75290173
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639403692569047454, guid: e3bb6ddbe002eb140a4339e0fb06c72d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639403692569047454, guid: e3bb6ddbe002eb140a4339e0fb06c72d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639403692569047454, guid: e3bb6ddbe002eb140a4339e0fb06c72d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 97.685
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639403692569047454, guid: e3bb6ddbe002eb140a4339e0fb06c72d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940488443774480034, guid: e3bb6ddbe002eb140a4339e0fb06c72d,
+        type: 3}
+      propertyPath: introLine
+      value: How can I help you?
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940488443774480034, guid: e3bb6ddbe002eb140a4339e0fb06c72d,
+        type: 3}
+      propertyPath: dialogueLines.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940488443774480034, guid: e3bb6ddbe002eb140a4339e0fb06c72d,
+        type: 3}
+      propertyPath: dialogueLines.Array.data[0]
+      value: Wait, you're Richard's boy...
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940488443774480034, guid: e3bb6ddbe002eb140a4339e0fb06c72d,
+        type: 3}
+      propertyPath: dialogueLines.Array.data[1]
+      value: He said you'd be coming.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940488443774480034, guid: e3bb6ddbe002eb140a4339e0fb06c72d,
+        type: 3}
+      propertyPath: dialogueLines.Array.data[2]
+      value: The trail to the house is up the road.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940488443774480034, guid: e3bb6ddbe002eb140a4339e0fb06c72d,
+        type: 3}
+      propertyPath: dialogueLines.Array.data[3]
+      value: The entrance is right behind the old bus station.
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e3bb6ddbe002eb140a4339e0fb06c72d, type: 3}
 --- !u!1 &1516255057
 GameObject:
   m_ObjectHideFlags: 0
@@ -22834,6 +22947,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextScene: GasStation_Exterior
   nextSpawnName: InteriorO_Spawn
+  locked: 0
+  key: key_name
+  openClip: {fileID: 0}
+  lockedClip: {fileID: 0}
+  unlockClip: {fileID: 0}
 --- !u!33 &2675650439846288024
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -74734,3 +74852,4 @@ SceneRoots:
   - {fileID: 664586546}
   - {fileID: 6787608539035390874}
   - {fileID: 1230384265}
+  - {fileID: 1342626903}

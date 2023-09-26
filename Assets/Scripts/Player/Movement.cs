@@ -17,6 +17,7 @@ public class Movement : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip[] soundClips;
+    public AudioClip[] forestClips;
     public float footstepTimer = 1.0f;
     private float timer;
     private int i;
@@ -57,23 +58,27 @@ public class Movement : MonoBehaviour
         {
             audioSource.volume = .5f;
             timer -= Time.deltaTime;
-            i = Random.Range(0, soundClips.Length);
+            //i = Random.Range(0, soundClips.Length);
+            i = Random.Range(0, forestClips.Length);
 
             if (timer <= 0 && playerSpeed == walkSpeed)
             {
-                audioSource.PlayOneShot(soundClips[i]);
+                //audioSource.PlayOneShot(soundClips[i]);
+                audioSource.PlayOneShot(forestClips[i]);
                 timer = footstepTimer;
             }
             else if (timer <= 0 && playerSpeed == sprintSpeed)
             {
                 audioSource.volume = audioSource.volume * 1.3f;
-                audioSource.PlayOneShot(soundClips[i]);
+                //audioSource.PlayOneShot(soundClips[i]);
+                audioSource.PlayOneShot(forestClips[i]);
                 timer = footstepTimer * 0.6f;
             }
             else if (timer <= 0 && playerSpeed == crouchSpeed)
             {
                 audioSource.volume *= 0.3f;
-                audioSource.PlayOneShot(soundClips[i]);
+                //audioSource.PlayOneShot(soundClips[i]);
+                audioSource.PlayOneShot(forestClips[i]);
                 timer = footstepTimer * 1.5f;
             }
         }
