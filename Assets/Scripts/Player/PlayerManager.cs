@@ -88,18 +88,18 @@ public class PlayerManager : MonoBehaviour
     //Toggles player scripts and controls, available to be used in other scripts
     public void ToggleControl()
     {
-        Debug.Log("IM TOGGLING CONTROL IN THE FUNCTION");
-        Debug.Log("move toggle");
+        //Debug.Log("IM TOGGLING CONTROL IN THE FUNCTION");
+        //Debug.Log("move toggle");
         move.enabled = !move.enabled;
-        Debug.Log("look toggle");
+        //Debug.Log("look toggle");
         look.enabled = !look.enabled;
-        Debug.Log("crouch toggle");
+        //Debug.Log("crouch toggle");
         crouch.enabled = !crouch.enabled;
-        Debug.Log("jump toggle");
+        //Debug.Log("jump toggle");
         jump.enabled = !jump.enabled;
-        Debug.Log("interactor toggle");
+        //Debug.Log("interactor toggle");
         interactor.enabled = !interactor.enabled;
-        Debug.Log("flash light toggle");
+        //Debug.Log("flash light toggle");
         flashLight.enabled = !flashLight.enabled;
     }
 

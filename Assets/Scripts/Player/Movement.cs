@@ -44,8 +44,8 @@ public class Movement : MonoBehaviour
         {
             if (hitInfo_0.collider.gameObject)
             {
-                Debug.DrawRay(raySource.position, -raySource.up, Color.green);
-                Debug.Log(hitInfo_0.collider.tag);
+                //Debug.DrawRay(raySource.position, -raySource.up, Color.green);
+                //Debug.Log(hitInfo_0.collider.tag);
                 if (hitInfo_0.collider.gameObject.tag == "HardSurface" || hitInfo_0.collider.gameObject.tag == "Untagged")
                 {
                     hardSurface = true;
