@@ -15,7 +15,7 @@ public class PlayerManager : MonoBehaviour
     public List<string> keyInventory;
 
     private Interactor interactor;
-    private ControlFlashLight flashLight;
+    private FlashLightController flashLight;
     private Movement move;
     private Look look;
     private Crouch crouch;
@@ -35,7 +35,7 @@ public class PlayerManager : MonoBehaviour
     void Awake()
     {
         interactor = GetComponent<Interactor>();
-        flashLight = GetComponent<ControlFlashLight>();
+        flashLight = GetComponent<FlashLightController>();
         move = GetComponent<Movement>();
         look = GetComponent<Look>();
         crouch = GetComponent<Crouch>();
