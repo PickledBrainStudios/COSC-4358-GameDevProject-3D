@@ -9,7 +9,7 @@ public class PlayerManager : MonoBehaviour
     private bool isDead = false;
 
     //This determine the spawn location of the player when they enter a new scene
-    [HideInInspector]
+    //[HideInInspector]
     public string spawnName = "Default_Spawn";
 
     public List<string> keyInventory;

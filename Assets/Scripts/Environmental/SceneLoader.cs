@@ -4,8 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public string level01;
+    public string level;
     public GameObject[] activateArray;
+    public bool isReset = false;
 
     /*
     private void Awake()
@@ -23,11 +24,20 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(TraditionalSceneName); // Replace "Your3DSceneName" with the actual name of your 3D scene.
     }
     */
-    public void StartGame() {
-        foreach (GameObject obj in activateArray) {
+    public void LoadScene() {
+        foreach (GameObject obj in activateArray) 
+        {
             obj.SetActive(true);
         }
-        SceneManager.LoadScene(level01);
+        if (isReset) 
+        {
+            Debug.Log("destroy!");
+            foreach (GameObject o in Object.FindObjectsOfType<GameObject>())
+            {
+                Destroy(o);
+            }
+        }
+        SceneManager.LoadScene(level);
     }
     public void CloseGame() {
         Application.Quit();
