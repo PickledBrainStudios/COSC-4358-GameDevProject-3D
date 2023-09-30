@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class HallwayEvent : MonoBehaviour
 {
-    public AudioSource audioSource;
+    
     public AudioClip soundClip;
     public GameObject nextSpot;
     public GameObject[] objectsToDestroy;
+
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GameObject.FindGameObjectWithTag("Player_AudioSource").GetComponent<AudioSource>();//find player
+    }
 
     private void OnTriggerEnter(Collider other)
     {

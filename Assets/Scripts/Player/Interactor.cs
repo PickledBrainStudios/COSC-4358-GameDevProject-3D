@@ -22,7 +22,7 @@ public class Interactor : MonoBehaviour
     //private TextMeshProUGUI centerText;
     private RawImage rawImage;
 
-    private void Start()
+    private void Awake()
     {
         interactorSource = Camera.main.transform;
         //centerText = GameObject.Find("CenterScreen").GetComponent<TextMeshProUGUI>();

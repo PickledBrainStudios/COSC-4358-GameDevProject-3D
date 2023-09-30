@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     public string level01;
+    public GameObject[] activateArray;
+
     /*
     private void Awake()
     {
@@ -22,6 +24,9 @@ public class SceneLoader : MonoBehaviour
     }
     */
     public void StartGame() {
+        foreach (GameObject obj in activateArray) {
+            obj.SetActive(true);
+        }
         SceneManager.LoadScene(level01);
     }
     public void CloseGame() {

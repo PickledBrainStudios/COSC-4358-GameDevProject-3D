@@ -1225,8 +1225,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6639403692569047454}
   - component: {fileID: 8515304390448560978}
-  - component: {fileID: 6940488443774480034}
   - component: {fileID: 3988420587314172662}
+  - component: {fileID: 6940488443774480034}
   m_Layer: 0
   m_Name: NPC01
   m_TagString: Untagged
@@ -1272,24 +1272,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6940488443774480034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6409515137820730899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 714c60088a025da4781427a3dc36e35a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  showImage: 0
-  imageTexture: {fileID: 0}
-  introLine: Whats up home boy?
-  dialogueLines:
-  - You lost?
-  pickUpClip: {fileID: 0}
 --- !u!65 &3988420587314172662
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1311,6 +1293,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.91, z: 1}
   m_Center: {x: 0, y: 0.86, z: 0}
+--- !u!114 &6940488443774480034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6409515137820730899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 714c60088a025da4781427a3dc36e35a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showImage: 0
+  imageTexture: {fileID: 0}
+  introLine: Whats up home boy?
+  dialogueLines:
+  - You lost?
+  pickUpClip: {fileID: 0}
 --- !u!1 &6446220982912688097
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class GoToObject : MonoBehaviour
 {
+    public bool goToPlayer = false; //will overwrite what ever designer writes in destination
     public GameObject destination;
     public float speed = 5.0f;
     private Vector3 direction;
 
+    private void Start()
+    {
+        if (goToPlayer) {
+            destination = GameObject.FindGameObjectWithTag("Player");//find player
+        }
+    }
 
     // Update is called once per frame
     void Update()

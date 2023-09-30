@@ -4,11 +4,13 @@ using UnityEngine.UI;
 
 public class NoteController : MonoBehaviour, IInteractable
 {
+    public bool isCharacter = false;
     public bool showImage;
     public Texture2D imageTexture;
     public string introLine;
     public string[] dialogueLines;
     public AudioClip pickUpClip;
+    public bool destroyOnComplete = false;
     private AudioSource audioSource;
     private TextMeshProUGUI dialogueText;
     private RawImage rawImage;
@@ -21,7 +23,14 @@ public class NoteController : MonoBehaviour, IInteractable
     {
         player = GameObject.FindGameObjectWithTag("Player");//find player
         playerManager = player.GetComponent<PlayerManager>();//find playerManager Script
-        dialogueText = GameObject.FindWithTag("UI_CenterScreen_Dialogue").GetComponent<TextMeshProUGUI>();
+        if (isCharacter)
+        {
+            dialogueText = GameObject.FindWithTag("UI_DialogueBox").GetComponent<TextMeshProUGUI>();
+        }
+        else
+        {
+            dialogueText = GameObject.FindWithTag("UI_CenterScreen_Dialogue").GetComponent<TextMeshProUGUI>();
+        }
         rawImage = GameObject.FindWithTag("UI_CenterScreen_Image").GetComponent<RawImage>();
         audioSource = GameObject.FindWithTag("Player_AudioSource").GetComponent<AudioSource>();
     }
@@ -49,7 +58,7 @@ public class NoteController : MonoBehaviour, IInteractable
             {
                 dialogueText.text = dialogueLines[currentLine];
                 currentLine++;
-                Debug.Log(currentLine + " " + dialogueLines.Length);
+                //Debug.Log(currentLine + " " + dialogueLines.Length);
             }
         }
         else if (Input.GetKeyDown(KeyCode.Space) && activeNote)
@@ -67,6 +76,7 @@ public class NoteController : MonoBehaviour, IInteractable
         activeNote = false;
         //gameObject.GetComponent<Renderer>().enabled = true;
         playerManager.ToggleControl();
-
+        dialogueText.text = "";
+        if (destroyOnComplete) { Destroy(this); }
     }
 }

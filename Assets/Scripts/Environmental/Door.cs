@@ -1,4 +1,6 @@
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
 
@@ -6,19 +8,30 @@ public class Door : MonoBehaviour, IInteractable
 {
     public string nextScene;
     public string nextSpawnName;
-    public bool locked = false;
+    
     public string key = "key_name";
     public AudioClip openClip;
-    public AudioClip lockedClip;
+    
     public AudioClip unlockClip;
+    public bool locked = false;
+    public string lockedDialogue;
+    public AudioClip lockedClip;
+    public float dialogueTimer;
+    private float timer;
+    private bool informPlayer = false;
+    private TextMeshProUGUI dialogueText;
     private AudioSource audioSource;
     private GameObject player;
     private PlayerManager playerManager;
+
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");//find player
         playerManager = player.GetComponent<PlayerManager>();//find playerManager Script
+        if (locked) {
+            dialogueText = GameObject.FindWithTag("UI_DialogueBox").GetComponent<TextMeshProUGUI>();
+        }
         audioSource = GameObject.FindWithTag("Player_AudioSource").GetComponent<AudioSource>();
     }
     //On interact
@@ -32,6 +45,11 @@ public class Door : MonoBehaviour, IInteractable
                 SceneManager.LoadScene(nextScene);//load next scene
             }
             audioSource.PlayOneShot(lockedClip);
+            dialogueText.text = "";
+            dialogueText.text = lockedDialogue;
+            informPlayer = true;
+            timer = dialogueTimer;
+
             //tell the player the door is locked but don't lock them in place
         }
         else 
@@ -39,6 +57,17 @@ public class Door : MonoBehaviour, IInteractable
             playerManager.spawnName = nextSpawnName;//modify their spawn location, so that when we load the next scene they will spawn in the correct spot
             audioSource.PlayOneShot(openClip);
             SceneManager.LoadScene(nextScene);//load next scene
+        }
+    }
+
+    private void Update() {
+        if (informPlayer) 
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0) {
+                dialogueText.text = "";
+                informPlayer = false;
+            }
         }
     }
 
