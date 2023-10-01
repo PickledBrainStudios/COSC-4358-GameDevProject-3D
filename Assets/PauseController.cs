@@ -21,15 +21,23 @@ public class PauseController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(paused);
+        //Debug.Log(paused);
         if (Input.GetKeyDown(KeyCode.Escape) && !paused)
         {
             PauseGame();
-            Cursor.lockState = CursorLockMode.None;
+            
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && paused)
         {
             UnpauseGame();
+            
+        }
+        if (paused)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else 
+        {
             Cursor.lockState = CursorLockMode.Locked;
         }
     }

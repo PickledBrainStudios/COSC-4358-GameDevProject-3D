@@ -6,11 +6,11 @@ using UnityEngine;
 
 public class FlashLightController : MonoBehaviour
 {
+    public bool hasFlashLight = false;
     private GameObject flashLight;
     public AudioSource audioSource;
     public AudioClip soundClip;
-    private bool hasFlashLight = false;
-
+    
     // Start is called before the first frame update
     void Start()
     {
