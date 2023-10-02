@@ -1,4 +1,7 @@
 using UnityEngine;
+using TMPro;
+using UnityEngine.AI;
+
 
 public class QTE01 : MonoBehaviour, QQuickTimeEvent
 {
@@ -7,13 +10,22 @@ public class QTE01 : MonoBehaviour, QQuickTimeEvent
     public int pressPenalty = 2;
     public int failPenalty = 10;
     public string[] qteSequence = { "Space", "C", "Space" }; // Example QTE sequence
+    public float stunDuration = 5f;
+    float temp;
 
     private bool qteActive = false;
+    private bool isStunned = false;
     private int currentQTEIndex = 0;
     private float qteTimer = 0.0f;
 
     private GameObject player;
     private PlayerManager playerManager;
+    private TextMeshProUGUI prompt;
+
+    private LineOfSight lineOfSight;
+    private EnemyPatrol enemyPatrol;
+    private NavMeshAgent navMeshAgent;
+
 
     void Update()
     {
@@ -23,6 +35,7 @@ public class QTE01 : MonoBehaviour, QQuickTimeEvent
             //playerScript.health -= Time.deltaTime * damageMultiplyer;
             //Debug.Log("Health:" + Mathf.Round(playerManager.health));
 
+            prompt.text = qteSequence[currentQTEIndex];
 
             foreach (KeyCode keyCode in System.Enum.GetValues(typeof(KeyCode)))//if multiple buttons have been pressed, they are placed into an array that will be looped through
             {
@@ -41,13 +54,34 @@ public class QTE01 : MonoBehaviour, QQuickTimeEvent
                 ResetQTE();
             }
         }
+        else if (isStunned && !qteActive)
+        {
+            temp -= Time.deltaTime;
+            if (temp <= 0f)
+            {
+                isStunned = false;
+                ResumePatrol();
+            }
+        }
     }
 
     public void ActivateQTE()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerManager = player.GetComponent<PlayerManager>();
+        lineOfSight = gameObject.GetComponent<LineOfSight>();
+        enemyPatrol = gameObject.GetComponent<EnemyPatrol>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        prompt = GameObject.FindWithTag("UI_QTE").GetComponent<TextMeshProUGUI>();
+
         playerManager.ToggleControl();
+        lineOfSight.StopChasing();
+        lineOfSight.enabled = false;
+        enemyPatrol.enabled = false;
+        //navMeshAgent.updatePosition = false;
+        navMeshAgent.velocity = Vector3.zero;
+        navMeshAgent.isStopped = true;
+
         qteActive = true;
         currentQTEIndex = 0;
         qteTimer = qteTimeLimit;
@@ -56,10 +90,21 @@ public class QTE01 : MonoBehaviour, QQuickTimeEvent
 
     private void ResetQTE()
     {
+        isStunned = true;
         qteActive = false;
+        prompt.text = "";
         currentQTEIndex = 0;
         qteTimer = 0.0f;
+        temp = stunDuration;
         playerManager.ToggleControl();
+    }
+
+    private void ResumePatrol() 
+    {
+        //navMeshAgent.updatePosition = true;
+        navMeshAgent.isStopped = false;
+        lineOfSight.enabled = true;
+        enemyPatrol.enabled = true;
     }
 
     public void StopQTE01()
@@ -91,6 +136,7 @@ public class QTE01 : MonoBehaviour, QQuickTimeEvent
                 // Incorrect input during QTE
                 Debug.Log("WRONG INPUT!");
                 playerManager.health -= pressPenalty;
+                currentQTEIndex = 0;
                 //Debug.Log("Health:" + Mathf.Round(playerManager.health));
                 //ResetQTE();
             }

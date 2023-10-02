@@ -26,7 +26,6 @@ public class OpenDoor : MonoBehaviour, IInteractable
 
     private TextMeshProUGUI dialogueText;
 
-
     private void Start()
     {
         if (locked)
