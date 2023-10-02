@@ -107,13 +107,6 @@ public class QTE01 : MonoBehaviour, QQuickTimeEvent
         enemyPatrol.enabled = true;
     }
 
-    public void StopQTE01()
-    {
-        qteActive = false;
-        currentQTEIndex = 0;
-        qteTimer = 0.0f;
-    }
-
     private void CheckInput(string input)
     {
         Debug.Log(input);
@@ -142,5 +135,4 @@ public class QTE01 : MonoBehaviour, QQuickTimeEvent
             }
         }
     }
-
 }
