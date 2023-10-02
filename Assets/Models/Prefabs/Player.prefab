@@ -3009,10 +3009,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraHeight: 1
   rotationDirections: -1
-  acceleration: {x: 2000, y: 2000}
-  sensitivity: {x: 500, y: -500}
+  acceleration: {x: 5000, y: 5000}
+  sensitivity: {x: 150, y: -150}
   maxVerticalAngleFromHorizon: 85
-  inputLagPeriod: 0.005
+  inputLagPeriod: 1e-10
 --- !u!114 &9001555059753395051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4034,8 +4034,8 @@ RectTransform:
   m_GameObject: {fileID: 4819691530664153351}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8.6901, y: 8.6901, z: 8.6901}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 66.86, y: 66.86, z: 66.86}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7089491647446043861}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
