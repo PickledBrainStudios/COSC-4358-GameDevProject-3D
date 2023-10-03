@@ -4,8 +4,9 @@ public class Crouch : MonoBehaviour
 {
     [HideInInspector]
     public bool isCrouching = false;
+    public float crouchDistance = 1f;
     private float originalHeight;
-    private Vector3 originalCenter;
+    //private Vector3 originalCenter;
     private CharacterController characterController;
 
     // Start is called before the first frame update
@@ -13,7 +14,7 @@ public class Crouch : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         // Store original values for crouching
-        originalCenter = characterController.center;
+        //originalCenter = characterController.center;
         originalHeight = characterController.height;
     }
 
@@ -32,12 +33,17 @@ public class Crouch : MonoBehaviour
 
         if (isCrouching)
         {
-            characterController.center = originalCenter / 2f;
-            characterController.height = originalHeight / 2f;
+            //Debug.Log(originalCenter);
+            Debug.Log(originalHeight);
+            Debug.Log(crouchDistance);
+            //characterController.center = originalCenter / crouchDistance;
+            characterController.height = originalHeight / crouchDistance;
+            Debug.Log(characterController.center);
+            Debug.Log(characterController.height);
         }
         else
         {
-            characterController.center = originalCenter;
+            //characterController.center = originalCenter;
             characterController.height = originalHeight;
         }
     }

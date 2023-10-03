@@ -104,7 +104,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.003, y: 0.003, z: 0.02}
-  m_Center: {x: 0, y: 0, z: 0.02}
+  m_Center: {x: 0, y: 0, z: 0.01}
 --- !u!1001 &8686974799351058607
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -167,6 +167,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 7020723973206533136, guid: a6bbbd32f3e889146b4fa75f3e3adf2e,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7020723973206533136, guid: a6bbbd32f3e889146b4fa75f3e3adf2e,
+        type: 3}
+      propertyPath: m_Extents.x
+      value: 0.0015
+      objectReference: {fileID: 0}
+    - target: {fileID: 7020723973206533136, guid: a6bbbd32f3e889146b4fa75f3e3adf2e,
+        type: 3}
+      propertyPath: m_Extents.y
+      value: 0.0015
+      objectReference: {fileID: 0}
+    - target: {fileID: 7020723973206533136, guid: a6bbbd32f3e889146b4fa75f3e3adf2e,
+        type: 3}
+      propertyPath: m_Extents.z
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 8684591432496698988, guid: a6bbbd32f3e889146b4fa75f3e3adf2e,
         type: 3}

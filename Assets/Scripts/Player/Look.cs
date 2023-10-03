@@ -120,7 +120,9 @@ public class Look : MonoBehaviour
         rotation.y = ClampVerticalAngle(rotation.y);
 
         // Convert the rotation to euler angles
-        transform.localEulerAngles = new Vector3(rotation.y, rotation.x, 0);
+       // transform.localEulerAngles = new Vector3(rotation.y, rotation.x, 0);
+        transform.localEulerAngles = new Vector3(0, rotation.x, 0);
+        Camera.main.transform.localEulerAngles = new Vector3(rotation.y, 0, 0);
 
         //old code for look
         /*
