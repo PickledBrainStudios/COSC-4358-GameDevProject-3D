@@ -6,10 +6,14 @@ public class NoteController : MonoBehaviour, IInteractable
 {
     public bool isCharacter = false;
     public bool showImage;
+
     public Texture2D imageTexture;
     public string introLine;
     public string[] dialogueLines;
     public AudioClip pickUpClip;
+
+    public bool isKey = false;
+    public Door door;
     public bool destroyOnComplete = false;
     private AudioSource audioSource;
     private TextMeshProUGUI dialogueText;
@@ -18,6 +22,8 @@ public class NoteController : MonoBehaviour, IInteractable
     private GameObject player;
     private PlayerManager playerManager;
     private bool activeNote = false;
+
+    
 
     private void Start()
     {
@@ -77,6 +83,13 @@ public class NoteController : MonoBehaviour, IInteractable
         //gameObject.GetComponent<Renderer>().enabled = true;
         playerManager.ToggleControl();
         dialogueText.text = "";
-        if (destroyOnComplete) { Destroy(this); }
+        if (isKey)
+        {
+            door.UnlockDoor();
+        }
+        if (destroyOnComplete) 
+        { 
+            Destroy(this); 
+        }
     }
 }

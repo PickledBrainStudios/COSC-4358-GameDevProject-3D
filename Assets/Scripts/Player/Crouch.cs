@@ -37,7 +37,7 @@ public class Crouch : MonoBehaviour
             Debug.Log(originalHeight);
             Debug.Log(crouchDistance);
             //characterController.center = originalCenter / crouchDistance;
-            characterController.height = originalHeight / crouchDistance;
+            characterController.height = originalHeight / 2f;
             Debug.Log(characterController.center);
             Debug.Log(characterController.height);
         }
