@@ -181,6 +181,7 @@ MonoBehaviour:
   lockedDialogue: 
   lockedClip: {fileID: 0}
   dialogueTimer: 0
+  fadeIncrement: 0.5
 --- !u!65 &256656352
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1034,6 +1035,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6636574974953515761, guid: 695264a64e4faa742a5e020c56559364,
+        type: 3}
+      propertyPath: fadeIncrement
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8917936607814170386, guid: 695264a64e4faa742a5e020c56559364,
         type: 3}
@@ -22758,6 +22764,7 @@ MonoBehaviour:
   lockedDialogue: 
   lockedClip: {fileID: 0}
   dialogueTimer: 0
+  fadeIncrement: 1
 --- !u!33 &2675650439846288024
 MeshFilter:
   m_ObjectHideFlags: 0

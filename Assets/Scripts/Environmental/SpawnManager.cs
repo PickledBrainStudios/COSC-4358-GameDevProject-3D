@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
@@ -14,9 +13,22 @@ public class SpawnManager : MonoBehaviour
     private PlayerManager playerManager;
     private GameObject spawnLocation;
 
+    private RawImage fade;
+    private bool fadeIn = false;
+    public float fadeIncrement = 0.5f;
+    private float realValue = 1f;
+    private bool playerFrozen = true;
 
     private void Start()
     {
+        //Debug.Log("SpawnManager Active");
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerManager = player.GetComponent<PlayerManager>();
+        spawnLocation = GameObject.Find(playerManager.spawnName);
+        fade = GameObject.FindWithTag("UI_Fade").GetComponent<RawImage>();
+        fade.color = new Color(0f, 0f, 0f, 1f);
+        playerManager.ToggleControl();
+
         if (solidSky) {
             Camera.main.clearFlags = CameraClearFlags.SolidColor;
             Camera.main.backgroundColor = color;
@@ -29,11 +41,6 @@ public class SpawnManager : MonoBehaviour
             Camera.main.clearFlags = CameraClearFlags.Skybox;
             RenderSettings.skybox = newSky;
         }
-        //Debug.Log("SpawnManager Active");
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerManager = player.GetComponent<PlayerManager>();
-        spawnLocation = GameObject.Find(playerManager.spawnName);
-        playerManager.ToggleControl();
         if (objectsToDestroy.Length > 0)
         {
             foreach (string obj in objectsToDestroy)
@@ -47,12 +54,27 @@ public class SpawnManager : MonoBehaviour
         if (player.transform.position != spawnLocation.transform.position)
         {
             player.transform.position = spawnLocation.transform.position;
+            fadeIn = true;
+            Debug.Log("Fade in on");
         }
-        else
-        {
-            //Debug.Log("Player Spawned");
+        else if (playerFrozen) {
             playerManager.ToggleControl();
-            Destroy(gameObject);
+            playerFrozen = false;
+        }
+        if (fadeIn)
+        {
+            if (realValue > 0f)
+            {
+                //Debug.Log(realValue);
+                realValue -= Time.deltaTime * fadeIncrement;
+                fade.color = new Color(0f, 0f, 0f, realValue);
+                Debug.Log(fade.color);
+            }
+            else
+            {
+                fadeIn = false;
+                Destroy(gameObject);
+            }
         }
     }
 }

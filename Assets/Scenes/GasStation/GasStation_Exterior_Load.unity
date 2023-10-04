@@ -214,6 +214,7 @@ MonoBehaviour:
     I should grab the map.
   lockedClip: {fileID: 0}
   dialogueTimer: 4
+  fadeIncrement: 1
 --- !u!64 &486223791
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -440,6 +441,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 661857854789190530, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_TagString
+      value: UI_Fade
+      objectReference: {fileID: 0}
     - target: {fileID: 3880679403463594044, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
         type: 3}
       propertyPath: m_Name
@@ -449,6 +455,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843392639345444242, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9195877316411427456, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
         type: 3}

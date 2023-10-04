@@ -24,6 +24,11 @@ public class Door : MonoBehaviour, IInteractable
     private GameObject player;
     private PlayerManager playerManager;
 
+    private RawImage fade;
+    private bool fadeOut = false;
+    public float fadeIncrement = 1f;
+    private float realValue = 0f;
+
 
     private void Start()
     {
@@ -33,17 +38,18 @@ public class Door : MonoBehaviour, IInteractable
             dialogueText = GameObject.FindWithTag("UI_DialogueBox").GetComponent<TextMeshProUGUI>();
         }
         audioSource = GameObject.FindWithTag("Player_AudioSource").GetComponent<AudioSource>();
+        fade = GameObject.FindWithTag("UI_Fade").GetComponent<RawImage>();
     }
     //On interact
     public void Interact() {
         if (locked)
         {
-            if (playerManager.keyInventory.Contains(key)) //check to see if the player has the key in their inventory
-            {
-                playerManager.spawnName = nextSpawnName;//modify their spawn location, so that when we load the next scene they will spawn in the correct spot
-                audioSource.PlayOneShot(unlockClip);
-                SceneManager.LoadScene(nextScene);//load next scene
-            }
+            //if (playerManager.keyInventory.Contains(key)) //check to see if the player has the key in their inventory
+            //{
+                //playerManager.spawnName = nextSpawnName;//modify their spawn location, so that when we load the next scene they will spawn in the correct spot
+                //audioSource.PlayOneShot(unlockClip);
+                //SceneManager.LoadScene(nextScene);//load next scene
+            //}
             audioSource.PlayOneShot(lockedClip);
             dialogueText.text = "";
             dialogueText.text = lockedDialogue;
@@ -55,8 +61,7 @@ public class Door : MonoBehaviour, IInteractable
         else 
         {
             playerManager.spawnName = nextSpawnName;//modify their spawn location, so that when we load the next scene they will spawn in the correct spot
-            audioSource.PlayOneShot(openClip);
-            SceneManager.LoadScene(nextScene);//load next scene
+            fadeOut = true;
         }
     }
 
@@ -67,6 +72,21 @@ public class Door : MonoBehaviour, IInteractable
             if (timer <= 0) {
                 dialogueText.text = "";
                 informPlayer = false;
+            }
+        }
+        if (fadeOut)
+        {
+            if (realValue < 1f)
+            {
+                Debug.Log(realValue);
+                realValue += Time.deltaTime * fadeIncrement;
+                fade.color = new Color(0f, 0f, 0f, realValue);
+            }
+            else 
+            {
+                fadeOut = false;
+                audioSource.PlayOneShot(openClip);
+                SceneManager.LoadScene(nextScene);//load next scene
             }
         }
     }

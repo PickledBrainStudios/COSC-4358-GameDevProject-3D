@@ -6,17 +6,18 @@ using UnityEngine.AI;
 public class QTE01 : MonoBehaviour, QQuickTimeEvent
 {
     //public float damageMultiplyer = 1f;
-    public float qteTimeLimit = 3.0f;
+    public float qteTimeLimit = 3.0f; //How long the player has to complete the QTE
     public int pressPenalty = 2;
     public int failPenalty = 10;
     public string[] qteSequence = { "Space", "C", "Space" }; // Example QTE sequence
     public float stunDuration = 5f;
-    float temp;
+    
 
     private bool qteActive = false;
     private bool isStunned = false;
     private int currentQTEIndex = 0;
     private float qteTimer = 0.0f;
+    private float temp;
 
     private GameObject player;
     private PlayerManager playerManager;

@@ -5,7 +5,7 @@ public class FlashLight : MonoBehaviour, IInteractable
     private GameObject player;
     private FlashLightController flashLight;
     public GameObject[] objectsToDestroy;
-    public Door door;
+    //public Door door;
     public void Interact()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -15,7 +15,7 @@ public class FlashLight : MonoBehaviour, IInteractable
         {
             Destroy(obj);
         }
-        door.UnlockDoor();
+        //door.UnlockDoor();
         Destroy(this.gameObject);
     }
 }

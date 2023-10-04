@@ -1911,9 +1911,6 @@ MonoBehaviour:
   - Ethan,  I can only imagine how confusing these past years must have been without
     me.  I want you to know that it wasn't by choice, and, every day, I've wanted
     to reunite with you.
-  - Ethan,  I can only imagine how confusing these past years must have been without
-    me.  I want you to know that it wasn't by choice, and, every day, I've wanted
-    to reunite with you.
   - There's something I need to share, something that's beyond words, and I can only
     do it in person.  Whispering Pines, the town we used to know, holds the key to
     everything. I ask you to come here, not because I need your help,  but because
@@ -5256,6 +5253,7 @@ MonoBehaviour:
   skyBox: 0
   color: {r: 0, g: 0, b: 0, a: 1}
   newSky: {fileID: 0}
+  fadeIncrement: 0.5
 --- !u!23 &3952636940556400028
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7295,6 +7293,7 @@ MonoBehaviour:
   lockedDialogue: 
   lockedClip: {fileID: 8300000, guid: d9ad351b5c1cf1e439af407ea24025ef, type: 3}
   dialogueTimer: 0
+  fadeIncrement: 0.1
 --- !u!23 &6494405818272743669
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9556,6 +9555,7 @@ MonoBehaviour:
   lockedDialogue: 
   lockedClip: {fileID: 0}
   dialogueTimer: 0
+  fadeIncrement: 1
 --- !u!4 &9086123357188819397
 Transform:
   m_ObjectHideFlags: 0
