@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
+
 
 public class OnCollideSpeak : MonoBehaviour
 {
@@ -12,16 +12,10 @@ public class OnCollideSpeak : MonoBehaviour
     private TextMeshProUGUI dialogueText;
 
     private int currentLine = 0;
-    private GameObject player;
-    private PlayerManager playerManager;
     private bool activeDialogue = false;
-
-
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");//find player
-        playerManager = player.GetComponent<PlayerManager>();//find playerManager Script
         dialogueText = GameObject.FindWithTag("UI_DialogueBox").GetComponent<TextMeshProUGUI>();
         timerT = timer;
     }
