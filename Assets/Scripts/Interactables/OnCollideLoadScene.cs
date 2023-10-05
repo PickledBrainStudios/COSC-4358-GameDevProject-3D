@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 public class OnCollideLoadScene : MonoBehaviour
 {
     public string nextScene;

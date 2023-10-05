@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Generator : MonoBehaviour, IInteractable
 {
-
     public GameObject[] toActivate;
     public GameObject[] toUnlock;
     // Start is called before the first frame update
