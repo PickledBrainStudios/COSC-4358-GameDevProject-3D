@@ -32,13 +32,13 @@ public class Movement : MonoBehaviour
         crouchScript = GetComponent<Crouch>();
         characterController = GetComponent<CharacterController>();
         timer = footstepTimer;
-
         raySource = gameObject.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         Ray r_0 = new(raySource.position, -raySource.up);//cast ray down
         if (Physics.Raycast(r_0, out RaycastHit hitInfo_0))
         {
@@ -56,6 +56,7 @@ public class Movement : MonoBehaviour
                 }
             }
         }
+        
 
         // Apply gravity
         playerVelocity.y += Physics.gravity.y * Time.deltaTime;
@@ -79,11 +80,10 @@ public class Movement : MonoBehaviour
         // Handling footsteps
         if ((moveX != 0 || moveZ != 0) && characterController.isGrounded)
         {
-            audioSource.volume = .5f;
+            //audioSource.volume = .5f;
             timer -= Time.deltaTime;
             if (hardSurface) { i = Random.Range(0, soundClips.Length); }
             else { i = Random.Range(0, forestClips.Length); }
-            
 
             if (timer <= 0 && playerSpeed == walkSpeed)
             {

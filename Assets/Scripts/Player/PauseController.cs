@@ -7,13 +7,13 @@ public class PauseController : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject userInterfaceMain;
     private PlayerManager playerManager;
-    private Look look;
+    //private Look look;
     public bool paused = false;
     // Start is called before the first frame update
     void Start()
     {
         playerManager = gameObject.GetComponent<PlayerManager>();
-        look = gameObject.GetComponent<Look>();
+        //look = gameObject.GetComponent<Look>();
         //userInterfaceMain = GameObject.FindGameObjectWithTag("UI_main");
         //pauseMenu = GameObject.FindGameObjectWithTag("UI_Pause_main");
     }
@@ -25,12 +25,10 @@ public class PauseController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && !paused)
         {
             PauseGame();
-            
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && paused)
         {
             UnpauseGame();
-            
         }
         if (paused)
         {

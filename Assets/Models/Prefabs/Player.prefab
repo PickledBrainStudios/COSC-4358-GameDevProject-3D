@@ -2873,11 +2873,11 @@ GameObject:
   - component: {fileID: 1537775400060615954}
   - component: {fileID: 6330842114818179654}
   - component: {fileID: 4453999073613500561}
-  - component: {fileID: 1414119317444958158}
+  - component: {fileID: 3060176347380909988}
   - component: {fileID: 4138412003472178794}
+  - component: {fileID: 1414119317444958158}
   - component: {fileID: 9001555059753395051}
   - component: {fileID: 945122595097747632}
-  - component: {fileID: 3060176347380909988}
   - component: {fileID: 4353355772626377094}
   - component: {fileID: 5823545857149826167}
   m_Layer: 0
@@ -2973,7 +2973,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.25
   m_Height: 2
@@ -3032,7 +3032,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   spawnName: Default_Spawn
-  keyInventory: []
+--- !u!114 &3060176347380909988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3880679403463594044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 487a247f55597c34f90624edabb41595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactRange: 3
+  reticle: {fileID: 2800000, guid: 84f150b22b773614f86a079a8580c74e, type: 3}
+  reticleActive: {fileID: 2800000, guid: 3e0d199b159ac3b47882a6a3fc0adfad, type: 3}
+--- !u!114 &4138412003472178794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3880679403463594044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac510b0c35ab214aa24bdf86beb6118, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraHeight: 1
+  rotationDirections: -1
+  acceleration: {x: 5000, y: 5000}
+  sensitivity: {x: 150, y: -150}
+  maxVerticalAngleFromHorizon: 85
+  inputLagPeriod: 1e-10
 --- !u!114 &1414119317444958158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3067,24 +3099,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ddc4973571f36404d95c23401b7d2f12, type: 3}
   - {fileID: 8300000, guid: 8c9f76b14113ab640ab4b94535ad82e3, type: 3}
   footstepTimer: 0.6
---- !u!114 &4138412003472178794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3880679403463594044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ac510b0c35ab214aa24bdf86beb6118, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraHeight: 1
-  rotationDirections: -1
-  acceleration: {x: 5000, y: 5000}
-  sensitivity: {x: 150, y: -150}
-  maxVerticalAngleFromHorizon: 85
-  inputLagPeriod: 1e-10
 --- !u!114 &9001555059753395051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3098,7 +3112,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCrouching: 0
-  crouchDistance: 0
 --- !u!114 &945122595097747632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3111,21 +3124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 324a855da86a86b4bbf619489f019e8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3060176347380909988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3880679403463594044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 487a247f55597c34f90624edabb41595, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactRange: 3
-  reticle: {fileID: 2800000, guid: 84f150b22b773614f86a079a8580c74e, type: 3}
-  reticleActive: {fileID: 2800000, guid: 3e0d199b159ac3b47882a6a3fc0adfad, type: 3}
 --- !u!114 &4353355772626377094
 MonoBehaviour:
   m_ObjectHideFlags: 0

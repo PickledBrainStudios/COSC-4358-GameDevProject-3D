@@ -12,7 +12,7 @@ public class PlayerManager : MonoBehaviour
     //[HideInInspector]
     public string spawnName = "Default_Spawn";
 
-    public List<string> keyInventory;
+    //public List<string> keyInventory;
 
     private Interactor interactor;
     private FlashLightController flashLight;
@@ -67,21 +67,12 @@ public class PlayerManager : MonoBehaviour
             {
                 Cursor.lockState = CursorLockMode.None;
             }
-            
         }
-
-        /*
-        //Check to see if player presses F to toggle flash light
-        if (Input.GetKeyDown(KeyCode.F) && hasFlashLight) 
-        {
-            ToggleLight();
-        }
-        */
 
         //Check to see if player die, and can only die onces
         if (health <= 0 && !isDead) {
-            Death();
             isDead = true;
+            Death();
         }
     }
 
@@ -103,21 +94,9 @@ public class PlayerManager : MonoBehaviour
         flashLight.enabled = !flashLight.enabled;
     }
 
-    /*
-    //Activates only once when the player picks up the flashlight 
-    public void ActivateFlashLight() {
-        hasFlashLight = true;
-        flashLight.SetActive(true);
-        audioSource.PlayOneShot(soundClip);
-    }
-
-    //Turns flash light on and off
-    public void ToggleLight() {
-        audioSource.Stop();
-        audioSource.PlayOneShot(soundClip);
-        flashLight.SetActive(!flashLight.activeSelf);  
-    }
-    */
+    //We need this fix so the door and spawn manager scene loads work properly***************
+    //public void disableControl();
+    //public void activeControl();
 
     //Meant to end game
     private void Death() {
@@ -126,7 +105,9 @@ public class PlayerManager : MonoBehaviour
         this.enabled = false;
     }
 
+    /*
     public void KeyPickup(string key) {
         keyInventory.Add(key);
     }
+    */
 }

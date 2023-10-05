@@ -71,7 +71,7 @@ public class SpawnManager : MonoBehaviour
                 //Debug.Log(realValue);
                 realValue -= Time.deltaTime * fadeSpeed;
                 fade.color = new Color(0f, 0f, 0f, realValue);
-                Debug.Log(fade.color);
+                //Debug.Log(fade.color);
             }
             else
             {

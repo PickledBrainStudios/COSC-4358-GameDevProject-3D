@@ -62,7 +62,9 @@ public class Look : MonoBehaviour
         }
         euler.x = ClampVerticalAngle(euler.x);
         // Set the angles here to clamp the current rotation
-        transform.localEulerAngles = euler;
+        ////////// Big change here************************************
+        //transform.localEulerAngles = euler;
+        //////////
         // Rotation is stored as (horizontal, vertical), which corresponds to the euler angles
         // around the y (up) axis and the x (right) axis
         //rotation = new Vector2(euler.y, euler.x);
@@ -120,7 +122,7 @@ public class Look : MonoBehaviour
         rotation.y = ClampVerticalAngle(rotation.y);
 
         // Convert the rotation to euler angles
-       // transform.localEulerAngles = new Vector3(rotation.y, rotation.x, 0);
+        //transform.localEulerAngles = new Vector3(rotation.y, rotation.x, 0);
         transform.localEulerAngles = new Vector3(0, rotation.x, 0);
         Camera.main.transform.localEulerAngles = new Vector3(rotation.y, 0, 0);
 

@@ -1,5 +1,4 @@
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
 
 interface IInteractable {
@@ -15,7 +14,7 @@ interface QQuickTimeEvent {
 public class Interactor : MonoBehaviour
 {
     
-    public float interactRange = 2;
+    public float interactRange = 3f;
     public Texture2D reticle;
     public Texture2D reticleActive;
     private Transform interactorSource;
@@ -34,14 +33,22 @@ public class Interactor : MonoBehaviour
         Ray r_0 = new(interactorSource.position, interactorSource.forward);
         if (Physics.Raycast(r_0, out RaycastHit hitInfo_0, interactRange))
         {
+            //Debug.Log(hitInfo_0.collider.gameObject.name);
+            //If your ray collides with something
             if (hitInfo_0.collider.gameObject.TryGetComponent(out IInteractable interactObj))
             {
+                //If your ray hits an interactable
+                //Debug.Log("INTERACTIONS");
                 Debug.DrawRay(interactorSource.position, interactorSource.forward * interactRange, Color.green);
                 //centerText.text = "Press E";
                 rawImage.texture = reticleActive;
+                if (Input.GetKeyDown(KeyCode.E))
+                    interactObj.Interact();
             }
             else
             {
+                //If ray hits normal collider
+                //Debug.Log("no interaction");
                 Debug.DrawRay(interactorSource.position, interactorSource.forward * interactRange, Color.red);
                 //centerText.text = "";
                 rawImage.texture = reticle;
@@ -49,10 +56,13 @@ public class Interactor : MonoBehaviour
         }
         else 
         {
+            //If your ray doesnt collide with anything
+            //Debug.Log("miss");
             Debug.DrawRay(interactorSource.position, interactorSource.forward * interactRange, Color.red);
             //centerText.text = "";
             rawImage.texture = reticle;
         }
+        /*
         if (Input.GetKeyDown(KeyCode.E)) {
             Ray r = new(interactorSource.position, interactorSource.forward);
             if (Physics.Raycast(r, out RaycastHit hitInfo, interactRange)) {
@@ -62,6 +72,7 @@ public class Interactor : MonoBehaviour
                 }
             }
         }
+        */
     }
 
     private void OnTriggerEnter(Collider other)

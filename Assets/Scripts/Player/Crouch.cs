@@ -4,7 +4,7 @@ public class Crouch : MonoBehaviour
 {
     [HideInInspector]
     public bool isCrouching = false;
-    public float crouchDistance = 1f;
+    //public float crouchDistance = 1f;
     private float originalHeight;
     //private Vector3 originalCenter;
     private CharacterController characterController;
@@ -31,15 +31,20 @@ public class Crouch : MonoBehaviour
     {
         isCrouching = !isCrouching;
 
+        //overhead check
+        //cast ray up
+        //if(hit.distance < originalHeight/2f)
+        // bool dontStand = true
+
         if (isCrouching)
         {
             //Debug.Log(originalCenter);
-            Debug.Log(originalHeight);
-            Debug.Log(crouchDistance);
+            //Debug.Log(originalHeight);
+            //Debug.Log(crouchDistance);
             //characterController.center = originalCenter / crouchDistance;
             characterController.height = originalHeight / 2f;
-            Debug.Log(characterController.center);
-            Debug.Log(characterController.height);
+            //Debug.Log(characterController.center);
+            //Debug.Log(characterController.height);
         }
         else
         {

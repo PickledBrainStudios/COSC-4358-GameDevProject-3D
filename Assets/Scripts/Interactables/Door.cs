@@ -12,14 +12,12 @@ public class Door : MonoBehaviour, IInteractable
     public float fadeSpeed = 1f;
 
     public bool locked = false;
-    public string key = "key_name";
+    //public string key = "key_name";
     public string lockedDialogue;
     public float dialogueTimer;
     public AudioClip lockedClip;
     public AudioClip unlockClip;
     
-    
-
     private float timer;
     private bool informPlayer = false;
     private bool fadeOut = false;
@@ -30,9 +28,6 @@ public class Door : MonoBehaviour, IInteractable
     private GameObject player;
     private PlayerManager playerManager;
     
-    
-    
-
 
     private void Start()
     {
@@ -82,7 +77,7 @@ public class Door : MonoBehaviour, IInteractable
         {
             if (realValue < 1f)
             {
-                Debug.Log(realValue);
+                //Debug.Log(realValue);
                 realValue += Time.deltaTime * fadeSpeed;
                 fade.color = new Color(0f, 0f, 0f, realValue);
             }

@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 
 
 public class FlashLightController : MonoBehaviour
@@ -10,6 +7,7 @@ public class FlashLightController : MonoBehaviour
     private GameObject flashLight;
     public AudioSource audioSource;
     public AudioClip soundClip;
+    //public AudioClip breakSound;
     
     // Start is called before the first frame update
     void Start()
@@ -47,5 +45,6 @@ public class FlashLightController : MonoBehaviour
         hasFlashLight = false;
         flashLight.SetActive(false);
         audioSource.PlayOneShot(soundClip); //will want to add light breaking sound effect
+        //audioSource.PlayOneShot(breakSound); //will want to add light breaking sound effect
     }
 }

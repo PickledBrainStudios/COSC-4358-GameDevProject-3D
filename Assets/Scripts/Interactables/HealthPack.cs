@@ -9,7 +9,6 @@ public class HealthPack : MonoBehaviour, CConsumable
     public void Consume() {
         player = GameObject.FindGameObjectWithTag("Player");
         playerManager = player.GetComponent<PlayerManager>();
-        Debug.Log(player.name);
         if (playerManager.health < 90)
         {
             playerManager.health += heal;

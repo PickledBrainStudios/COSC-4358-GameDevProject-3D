@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 198852249}
   - component: {fileID: 198852248}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: SceneLoader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 486223794}
   - component: {fileID: 486223793}
   - component: {fileID: 486223792}
-  - component: {fileID: 486223791}
+  - component: {fileID: 486223796}
   - component: {fileID: 486223790}
   - component: {fileID: 486223795}
   m_Layer: 0
@@ -206,37 +206,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextScene: GasStation_Interior
   nextSpawnName: Interior_Spawn
-  key: flashlight
   openClip: {fileID: 0}
-  unlockClip: {fileID: 0}
+  fadeSpeed: 1
   locked: 1
+  key: flashlight
   lockedDialogue: I want to ask the clerk about the house dad mentioned in his letter.
     I should grab the map.
-  lockedClip: {fileID: 0}
   dialogueTimer: 4
-  fadeIncrement: 1
---- !u!64 &486223791
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 486223789}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2728652555055584723, guid: 50d99b8cd4d7dec4699fd0ee87ba4611, type: 3}
+  lockedClip: {fileID: 0}
+  unlockClip: {fileID: 0}
 --- !u!23 &486223792
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -317,6 +295,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectID: 
+--- !u!65 &486223796
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486223789}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.009411321, y: 0.001615929, z: 0.025295038}
+  m_Center: {x: -0.0046675256, y: -0.0004107127, z: 0.00025504682}
 --- !u!1001 &832851472
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -445,6 +444,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: UI_Fade
+      objectReference: {fileID: 0}
+    - target: {fileID: 1283686129877558463, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3880679403463594044, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
         type: 3}
@@ -670,6 +674,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 1159159606}
   - {fileID: 832851472}
-  - {fileID: 198852249}
   - {fileID: 486223794}
   - {fileID: 1978133568}
+  - {fileID: 198852249}
