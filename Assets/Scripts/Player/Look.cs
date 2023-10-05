@@ -65,7 +65,7 @@ public class Look : MonoBehaviour
         transform.localEulerAngles = euler;
         // Rotation is stored as (horizontal, vertical), which corresponds to the euler angles
         // around the y (up) axis and the x (right) axis
-        rotation = new Vector2(euler.y, euler.x);
+        //rotation = new Vector2(euler.y, euler.x);
     }
 
     private float ClampVerticalAngle(float angle)

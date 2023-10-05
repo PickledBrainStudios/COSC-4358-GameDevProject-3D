@@ -456,6 +456,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3946346499831144800, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5843392639345444242, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
         type: 3}
       propertyPath: m_Color.a
@@ -570,7 +575,8 @@ MonoBehaviour:
   pickUpClip: {fileID: 8300000, guid: fba497f1e6fe18147bccfbd27a13e071, type: 3}
   isKey: 1
   door: {fileID: 486223790}
-  destroyOnComplete: 1
+  destroyOnComplete: 0
+  destroyObj: 1
 --- !u!64 &1978133565
 MeshCollider:
   m_ObjectHideFlags: 0

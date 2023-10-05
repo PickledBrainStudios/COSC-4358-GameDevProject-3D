@@ -8,26 +8,30 @@ public class Door : MonoBehaviour, IInteractable
 {
     public string nextScene;
     public string nextSpawnName;
-    
-    public string key = "key_name";
     public AudioClip openClip;
-    
-    public AudioClip unlockClip;
+    public float fadeSpeed = 1f;
+
     public bool locked = false;
+    public string key = "key_name";
     public string lockedDialogue;
-    public AudioClip lockedClip;
     public float dialogueTimer;
+    public AudioClip lockedClip;
+    public AudioClip unlockClip;
+    
+    
+
     private float timer;
     private bool informPlayer = false;
+    private bool fadeOut = false;
+    private float realValue = 0f;
+    private RawImage fade;
     private TextMeshProUGUI dialogueText;
     private AudioSource audioSource;
     private GameObject player;
     private PlayerManager playerManager;
-
-    private RawImage fade;
-    private bool fadeOut = false;
-    public float fadeIncrement = 1f;
-    private float realValue = 0f;
+    
+    
+    
 
 
     private void Start()
@@ -79,7 +83,7 @@ public class Door : MonoBehaviour, IInteractable
             if (realValue < 1f)
             {
                 Debug.Log(realValue);
-                realValue += Time.deltaTime * fadeIncrement;
+                realValue += Time.deltaTime * fadeSpeed;
                 fade.color = new Color(0f, 0f, 0f, realValue);
             }
             else 

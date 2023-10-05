@@ -6,15 +6,19 @@ public class NoteController : MonoBehaviour, IInteractable
 {
     public bool isCharacter = false;
     public bool showImage;
-
     public Texture2D imageTexture;
+
     public string introLine;
     public string[] dialogueLines;
+
     public AudioClip pickUpClip;
 
     public bool isKey = false;
     public Door door;
+
     public bool destroyOnComplete = false;
+    public bool destroyObj = false;
+
     private AudioSource audioSource;
     private TextMeshProUGUI dialogueText;
     private RawImage rawImage;
@@ -90,6 +94,10 @@ public class NoteController : MonoBehaviour, IInteractable
         if (destroyOnComplete) 
         { 
             Destroy(this); 
+        }
+        if (destroyObj)
+        {
+            Destroy(this.gameObject);
         }
     }
 }

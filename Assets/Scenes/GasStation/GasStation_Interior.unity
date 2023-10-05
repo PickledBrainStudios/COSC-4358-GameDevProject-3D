@@ -1662,7 +1662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 714c60088a025da4781427a3dc36e35a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isCharacter: 0
+  isCharacter: 1
   showImage: 0
   imageTexture: {fileID: 0}
   introLine: Sorry, kid.
@@ -1673,6 +1673,7 @@ MonoBehaviour:
   isKey: 0
   door: {fileID: 0}
   destroyOnComplete: 0
+  destroyObj: 0
 --- !u!114 &1342626906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45281,6 +45282,7 @@ MonoBehaviour:
   isKey: 0
   door: {fileID: 0}
   destroyOnComplete: 0
+  destroyObj: 0
 --- !u!4 &5358218891524932198
 Transform:
   m_ObjectHideFlags: 0
@@ -58260,6 +58262,7 @@ MonoBehaviour:
   isKey: 0
   door: {fileID: 0}
   destroyOnComplete: 1
+  destroyObj: 0
 --- !u!33 &6940593856950569141
 MeshFilter:
   m_ObjectHideFlags: 0

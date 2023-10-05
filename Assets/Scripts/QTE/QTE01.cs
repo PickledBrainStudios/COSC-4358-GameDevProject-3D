@@ -12,7 +12,6 @@ public class QTE01 : MonoBehaviour, QQuickTimeEvent
     public string[] qteSequence = { "Space", "C", "Space" }; // Example QTE sequence
     public float stunDuration = 5f;
     
-
     private bool qteActive = false;
     private bool isStunned = false;
     private int currentQTEIndex = 0;

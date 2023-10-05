@@ -4,20 +4,22 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public string[] objectsToDestroy;
+    public float fadeSpeed = 0.5f;
     public bool changeSky = false;
     public bool solidSky = false;
     public bool skyBox = false;
     public Color color = Color.black;
     public Material newSky;
+
     private GameObject player;
     private PlayerManager playerManager;
     private GameObject spawnLocation;
-
     private RawImage fade;
-    private bool fadeIn = false;
-    public float fadeIncrement = 0.5f;
-    private float realValue = 1f;
+    private bool postitionPlayer = true;
     private bool playerFrozen = true;
+    private bool fadeIn = false;
+    private float realValue = 1f;
+
 
     private void Start()
     {
@@ -51,11 +53,12 @@ public class SpawnManager : MonoBehaviour
     }
     private void Update()
     {
-        if (player.transform.position != spawnLocation.transform.position)
+        if (player.transform.position != spawnLocation.transform.position && postitionPlayer)
         {
             player.transform.position = spawnLocation.transform.position;
             fadeIn = true;
-            Debug.Log("Fade in on");
+            postitionPlayer = false;
+            //Debug.Log("Fade in on");
         }
         else if (playerFrozen) {
             playerManager.ToggleControl();
@@ -66,7 +69,7 @@ public class SpawnManager : MonoBehaviour
             if (realValue > 0f)
             {
                 //Debug.Log(realValue);
-                realValue -= Time.deltaTime * fadeIncrement;
+                realValue -= Time.deltaTime * fadeSpeed;
                 fade.color = new Color(0f, 0f, 0f, realValue);
                 Debug.Log(fade.color);
             }
