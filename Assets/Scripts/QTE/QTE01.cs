@@ -26,6 +26,11 @@ public class QTE01 : MonoBehaviour, QQuickTimeEvent
     private EnemyPatrol enemyPatrol;
     private NavMeshAgent navMeshAgent;
 
+    public AudioClip jumpScareSound;
+    private AudioSource audioSource;
+    private Animator enemyAnimator;
+    private SkinnedMeshRenderer enemyMesh;
+    public SkinnedMeshRenderer mesh;
 
     void Update()
     {
@@ -73,8 +78,17 @@ public class QTE01 : MonoBehaviour, QQuickTimeEvent
         enemyPatrol = gameObject.GetComponent<EnemyPatrol>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         prompt = GameObject.FindWithTag("UI_QTE").GetComponent<TextMeshProUGUI>();
+        enemyAnimator = GameObject.FindGameObjectWithTag("JumpScare_Enemy01").GetComponent<Animator>();
+        audioSource = GameObject.FindGameObjectWithTag("JumpScare_Enemy01").GetComponent<AudioSource>();
+        enemyMesh = GameObject.FindGameObjectWithTag("Enemy01Mesh").GetComponent<SkinnedMeshRenderer>();
 
+        audioSource.PlayOneShot(jumpScareSound);
         playerManager.ToggleControl();
+        player.transform.LookAt(transform);
+        player.transform.Rotate(-player.transform.eulerAngles.x, 0.0f, 0.0f);
+        mesh.enabled = false;
+        enemyMesh.enabled = true;
+        enemyAnimator.enabled = true;
         lineOfSight.StopChasing();
         lineOfSight.enabled = false;
         enemyPatrol.enabled = false;
@@ -96,6 +110,9 @@ public class QTE01 : MonoBehaviour, QQuickTimeEvent
         currentQTEIndex = 0;
         qteTimer = 0.0f;
         temp = stunDuration;
+        mesh.enabled = true;
+        enemyMesh.enabled = false;
+        enemyAnimator.enabled = false;
         playerManager.ToggleControl();
     }
 

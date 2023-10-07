@@ -3,8 +3,8 @@ using UnityEngine.AI;
 
 public class EnemyPatrol : MonoBehaviour
 {
+    public float patrolSpeed = 1f;
     public Transform[] waypoints;
-    public float patrolSpeed = 3f;
     private int currentWaypoint = 0;
     private NavMeshAgent navMeshAgent;
 
