@@ -20,7 +20,8 @@ public class Movement : MonoBehaviour
     public AudioClip[] forestClips;
     public float footstepTimer = 1.0f;
     private float timer;
-    private int i;
+    private int stepIndex;
+    private float stepVolume = 0.5f;
 
     private Transform raySource;
     private bool hardSurface = true;
@@ -80,29 +81,29 @@ public class Movement : MonoBehaviour
         // Handling footsteps
         if ((moveX != 0 || moveZ != 0) && characterController.isGrounded)
         {
-            //audioSource.volume = .5f;
+            audioSource.volume = stepVolume;
             timer -= Time.deltaTime;
-            if (hardSurface) { i = Random.Range(0, soundClips.Length); }
-            else { i = Random.Range(0, forestClips.Length); }
+            if (hardSurface) { stepIndex = Random.Range(0, soundClips.Length); }
+            else { stepIndex = Random.Range(0, forestClips.Length); }
 
             if (timer <= 0 && playerSpeed == walkSpeed)
             {
-                if (hardSurface) { audioSource.PlayOneShot(soundClips[i]); }
-                else { audioSource.PlayOneShot(forestClips[i]); }
+                if (hardSurface) { audioSource.PlayOneShot(soundClips[stepIndex]); }
+                else { audioSource.PlayOneShot(forestClips[stepIndex]); }
                 timer = footstepTimer;
             }
             else if (timer <= 0 && playerSpeed == sprintSpeed)
             {
-                audioSource.volume = audioSource.volume * 1.3f;
-                if (hardSurface) { audioSource.PlayOneShot(soundClips[i]); }
-                else { audioSource.PlayOneShot(forestClips[i]); }
+                audioSource.volume = stepVolume * 1.5f;
+                if (hardSurface) { audioSource.PlayOneShot(soundClips[stepIndex]); }
+                else { audioSource.PlayOneShot(forestClips[stepIndex]); }
                 timer = footstepTimer * 0.6f;
             }
             else if (timer <= 0 && playerSpeed == crouchSpeed)
             {
-                audioSource.volume *= 0.3f;
-                if (hardSurface) { audioSource.PlayOneShot(soundClips[i]); }
-                else { audioSource.PlayOneShot(forestClips[i]); }
+                audioSource.volume = stepVolume * 0.2f;
+                if (hardSurface) { audioSource.PlayOneShot(soundClips[stepIndex]); }
+                else { audioSource.PlayOneShot(forestClips[stepIndex]); }
                 timer = footstepTimer * 1.5f;
             }
         }

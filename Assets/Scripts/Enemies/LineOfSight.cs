@@ -131,6 +131,7 @@ public class LineOfSight : MonoBehaviour
 
     public void StartChasing()
     {
+        Debug.Log("Chase started");
         patrol.enabled = false;
         isChasing = true;
         navMeshAgent.speed = chaseSpeed;
