@@ -59,6 +59,7 @@ public class Door : MonoBehaviour, IInteractable
         }
         else 
         {
+            audioSource.PlayOneShot(openClip);
             playerManager.spawnName = nextSpawnName;//modify their spawn location, so that when we load the next scene they will spawn in the correct spot
             fadeOut = true;
         }
@@ -84,7 +85,7 @@ public class Door : MonoBehaviour, IInteractable
             else 
             {
                 fadeOut = false;
-                audioSource.PlayOneShot(openClip);
+                //audioSource.PlayOneShot(openClip);
                 SceneManager.LoadScene(nextScene);//load next scene
             }
         }
