@@ -16,7 +16,9 @@ public class SpawnManager : MonoBehaviour
     private GameObject spawnLocation;
     private RawImage fade;
     private bool postitionPlayer = true;
-    private bool playerFrozen = true;
+    private bool rotatePlayer = true;
+    private bool unFreeze = false;
+    private bool unFrozen = false;
     private bool fadeIn = false;
     private float realValue = 1f;
 
@@ -55,14 +57,27 @@ public class SpawnManager : MonoBehaviour
     {
         if (player.transform.position != spawnLocation.transform.position && postitionPlayer)
         {
+            player.transform.localEulerAngles = spawnLocation.transform.localEulerAngles;
+            Camera.main.transform.localEulerAngles = spawnLocation.transform.forward;
             player.transform.position = spawnLocation.transform.position;
-            fadeIn = true;
-            postitionPlayer = false;
+
+            //fadeIn = true;
+            //postitionPlayer = false;
             //Debug.Log("Fade in on");
         }
-        else if (playerFrozen) {
+        else
+        {
+            unFreeze = true;
+            fadeIn = true;
+            postitionPlayer = false;
+            rotatePlayer = false;
+            
+        }
+        if (unFreeze && !unFrozen)
+        {
             playerManager.ActivateControl();
-            playerFrozen = false;
+            unFreeze = false;
+            unFrozen = true;
         }
         if (fadeIn)
         {

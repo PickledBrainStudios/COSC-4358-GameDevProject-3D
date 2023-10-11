@@ -8,10 +8,19 @@ public class HallwayEvent : MonoBehaviour
     public GameObject[] objectsToDestroy;
 
     private AudioSource audioSource;
+    private bool destroy = false;
 
     private void Start()
     {
         audioSource = GameObject.FindGameObjectWithTag("Player_AudioSource").GetComponent<AudioSource>();//find player
+    }
+
+    private void Update()
+    {
+        if (destroy) {
+            foreach (GameObject obj in objectsToDestroy) { Destroy(obj); }
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -20,7 +29,6 @@ public class HallwayEvent : MonoBehaviour
         if (nextSpot != null) {
             nextSpot.SetActive(true);
         }
-        foreach (GameObject obj in objectsToDestroy) { Destroy(obj); }
-        Destroy(gameObject);
+        destroy = true;
     }
 }

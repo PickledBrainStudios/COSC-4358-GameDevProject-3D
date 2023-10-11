@@ -46,10 +46,12 @@ public class Look : MonoBehaviour
         baseSens = sensitivity;
     }
 
+    
     // When this component is enabled, we need to reset the state
     // and figure out the current rotation
     private void OnEnable()
     {
+        Debug.Log("onenable");
         // Reset the state
         velocity = Vector2.zero;
         inputLagTimer = 0;
@@ -57,20 +59,26 @@ public class Look : MonoBehaviour
 
         // Calculate the current rotation by getting the gameObject's local euler angles
         Vector3 euler = transform.localEulerAngles;
+        Debug.Log(euler.x);
+        Debug.Log(transform.localEulerAngles.x);
         // Euler angles range from [0, 360), but we want [-180, 180)
         if (euler.x >= 180)
         {
             euler.x -= 360;
         }
         euler.x = ClampVerticalAngle(euler.x);
+
+        Debug.Log(euler.x);
+
         // Set the angles here to clamp the current rotation
         ////////// Big change here************************************
-        //transform.localEulerAngles = euler;
+        transform.localEulerAngles = euler;
         //////////
         // Rotation is stored as (horizontal, vertical), which corresponds to the euler angles
         // around the y (up) axis and the x (right) axis
-        //rotation = new Vector2(euler.y, euler.x);
+        rotation = new Vector2(euler.y, rotation.y);
     }
+    
 
     private float ClampVerticalAngle(float angle)
     {
@@ -124,7 +132,6 @@ public class Look : MonoBehaviour
         rotation.y = ClampVerticalAngle(rotation.y);
 
         // Convert the rotation to euler angles
-        //transform.localEulerAngles = new Vector3(rotation.y, rotation.x, 0);
         transform.localEulerAngles = new Vector3(0, rotation.x, 0);
         Camera.main.transform.localEulerAngles = new Vector3(rotation.y, 0, 0);
 
@@ -149,6 +156,9 @@ public class Look : MonoBehaviour
     public void ChangeSensitivity() {
         sensitivity = baseSens * 0.02f * sensitivitySlider.value;
         //Debug.Log(sensitivity);
+    }
+    public void ResetLook() { 
+        
     }
 }
 
