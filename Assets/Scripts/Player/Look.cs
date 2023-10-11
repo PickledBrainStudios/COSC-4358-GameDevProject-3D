@@ -1,11 +1,11 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Look : MonoBehaviour
 {
     public float  cameraHeight = 1.0f;
+    public Slider sensitivitySlider;
     private Transform cameraTransform, playerTransform;
 
     //Source: https://www.youtube.com/watch?v=Coch-PkHY54
@@ -25,6 +25,7 @@ public class Look : MonoBehaviour
     [SerializeField] private Vector2 acceleration;
     [Tooltip("A multiplier to the input. Describes the maximum speed in degrees / second. To flip vertical rotation, set Y to a negative value")]
     [SerializeField] private Vector2 sensitivity;
+    private Vector2 baseSens;
     [Tooltip("The maximum angle from the horizon the player can rotate, in degrees")]
     [SerializeField] private float maxVerticalAngleFromHorizon;
     [Tooltip("The period to wait until resetting the input value. Set this as low as possible, without encountering stuttering")]
@@ -42,6 +43,7 @@ public class Look : MonoBehaviour
         cameraTransform = Camera.main.transform; //get camera transform
         playerTransform = transform; 
         cameraTransform.position = new Vector3 ( playerTransform.position.x, playerTransform.position.y + cameraHeight, playerTransform.position.z );
+        baseSens = sensitivity;
     }
 
     // When this component is enabled, we need to reset the state
@@ -142,6 +144,11 @@ public class Look : MonoBehaviour
         cameraTransform.rotation = Quaternion.Euler(verticalRotation, horizontalRotation, 0f);
         playerTransform.rotation *= Quaternion.Euler(0f, mouseX, 0f);
         */
+    }
+
+    public void ChangeSensitivity() {
+        sensitivity = baseSens * 0.02f * sensitivitySlider.value;
+        //Debug.Log(sensitivity);
     }
 }
 

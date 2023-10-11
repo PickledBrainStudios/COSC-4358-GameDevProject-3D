@@ -44,7 +44,7 @@ public class PauseController : MonoBehaviour
         Camera.main.GetComponent<AudioListener>().enabled = false;
         Time.timeScale = 0;
         paused = true;
-        playerManager.ToggleControl();
+        playerManager.DeactivateControl();
         userInterfaceMain.SetActive(!userInterfaceMain.activeSelf);
         pauseMenu.SetActive(!pauseMenu.activeSelf);
     }
@@ -54,7 +54,7 @@ public class PauseController : MonoBehaviour
         Camera.main.GetComponent<AudioListener>().enabled = true;
         Time.timeScale = 1;
         paused = false;
-        playerManager.ToggleControl();
+        playerManager.ActivateControl();
         userInterfaceMain.SetActive(!userInterfaceMain.activeSelf);
         pauseMenu.SetActive(!pauseMenu.activeSelf);
     }

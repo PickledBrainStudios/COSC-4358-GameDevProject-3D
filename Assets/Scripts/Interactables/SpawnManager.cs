@@ -29,7 +29,7 @@ public class SpawnManager : MonoBehaviour
         spawnLocation = GameObject.Find(playerManager.spawnName);
         fade = GameObject.FindWithTag("UI_Fade").GetComponent<RawImage>();
         fade.color = new Color(0f, 0f, 0f, 1f);
-        playerManager.ToggleControl();
+        playerManager.DeactivateControl();
 
         if (solidSky) {
             Camera.main.clearFlags = CameraClearFlags.SolidColor;
@@ -61,7 +61,7 @@ public class SpawnManager : MonoBehaviour
             //Debug.Log("Fade in on");
         }
         else if (playerFrozen) {
-            playerManager.ToggleControl();
+            playerManager.ActivateControl();
             playerFrozen = false;
         }
         if (fadeIn)

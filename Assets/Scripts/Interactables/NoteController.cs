@@ -48,7 +48,7 @@ public class NoteController : MonoBehaviour, IInteractable
     {
         // Display the note when the player interacts with it
 
-        playerManager.ToggleControl();
+        playerManager.DeactivateControl();
         audioSource.PlayOneShot(pickUpClip);
         dialogueText.text = ""; // Clear text initially
         dialogueText.text = introLine;
@@ -85,7 +85,7 @@ public class NoteController : MonoBehaviour, IInteractable
         rawImage.enabled = false;
         activeNote = false;
         //gameObject.GetComponent<Renderer>().enabled = true;
-        playerManager.ToggleControl();
+        playerManager.ActivateControl();
         dialogueText.text = "";
         if (isKey)
         {

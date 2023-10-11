@@ -94,13 +94,45 @@ public class PlayerManager : MonoBehaviour
         flashLight.enabled = !flashLight.enabled;
     }
 
+    public void ActivateControl()
+    {        //Debug.Log("IM TOGGLING CONTROL IN THE FUNCTION");
+        //Debug.Log("move toggle");
+        move.enabled = true;
+        //Debug.Log("look toggle");
+        look.enabled = true;
+        //Debug.Log("crouch toggle");
+        crouch.enabled = true;
+        //Debug.Log("jump toggle");
+        jump.enabled = true;
+        //Debug.Log("interactor toggle");
+        interactor.enabled = true;
+        //Debug.Log("flash light toggle");
+        flashLight.enabled = true;
+    }
+
+    public void DeactivateControl()
+    {        //Debug.Log("IM TOGGLING CONTROL IN THE FUNCTION");
+        //Debug.Log("move toggle");
+        move.enabled = false;
+        //Debug.Log("look toggle");
+        look.enabled = false;
+        //Debug.Log("crouch toggle");
+        crouch.enabled = false;
+        //Debug.Log("jump toggle");
+        jump.enabled = false;
+        //Debug.Log("interactor toggle");
+        interactor.enabled = false;
+        //Debug.Log("flash light toggle");
+        flashLight.enabled = false;
+    }
+
     //We need this fix so the door and spawn manager scene loads work properly***************
     //public void disableControl();
     //public void activeControl();
 
     //Meant to end game
     private void Death() {
-        ToggleControl();
+        DeactivateControl();
         centerText.text = "GAME OVER";
         this.enabled = false;
     }

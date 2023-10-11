@@ -1296,7 +1296,7 @@ Transform:
   m_GameObject: {fileID: 559026882}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -32.1, y: 3.2499995, z: -9.68}
+  m_LocalPosition: {x: -32.1, y: 3.2499995, z: -9.61}
   m_LocalScale: {x: 33.77253, y: 6.285602, z: 3.7309446}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2694,6 +2694,7 @@ MonoBehaviour:
   dialogueLines:
   - It's way too dark...
   timer: 3
+  destroyOnComplete: 0
 --- !u!1 &1369077509
 GameObject:
   m_ObjectHideFlags: 0
@@ -2733,6 +2734,74 @@ Transform:
   - {fileID: 1164676707}
   m_Father: {fileID: 6763230087105470994}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!1001 &1381849209
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3880679403463594044, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9195877316411427456, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.626291
+      objectReference: {fileID: 0}
+    - target: {fileID: 9195877316411427456, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9195877316411427456, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 24.201267
+      objectReference: {fileID: 0}
+    - target: {fileID: 9195877316411427456, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7433198
+      objectReference: {fileID: 0}
+    - target: {fileID: 9195877316411427456, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9195877316411427456, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.6689362
+      objectReference: {fileID: 0}
+    - target: {fileID: 9195877316411427456, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9195877316411427456, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9195877316411427456, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 276.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 9195877316411427456, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2ebc19dcc7cbce54087523ea6819b7a9, type: 3}
 --- !u!1 &1447455799
 GameObject:
   m_ObjectHideFlags: 0
@@ -3287,7 +3356,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13abca53c19ef1a4e8445802a579d8e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectsToDestroy: []
+  objectsToDestroy:
+  - {fileID: 2040705385}
 --- !u!1 &1736428350
 GameObject:
   m_ObjectHideFlags: 0
@@ -3983,7 +4053,7 @@ Transform:
   m_GameObject: {fileID: 2040705385}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -32.1, y: 3.25, z: -13.469997}
+  m_LocalPosition: {x: -32.1, y: 3.25, z: -0.56}
   m_LocalScale: {x: 3.18, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5338,3 +5408,4 @@ SceneRoots:
   - {fileID: 2040705388}
   - {fileID: 559026887}
   - {fileID: 1671960045}
+  - {fileID: 1381849209}

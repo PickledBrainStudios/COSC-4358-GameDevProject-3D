@@ -33,7 +33,7 @@ public class JumpScareTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         audioSource.PlayOneShot(jumpScareSound);
-        playerManager.ToggleControl();
+        playerManager.DeactivateControl();
         player.transform.Rotate(-player.transform.eulerAngles.x, 0.0f, 0.0f) ;
         activated = true;
         enemyMesh.enabled = true;
@@ -51,7 +51,7 @@ public class JumpScareTrigger : MonoBehaviour
             activated = false;
             enemyMesh.enabled = false;
             enemyAnimator.enabled = false;
-            playerManager.ToggleControl();
+            playerManager.ActivateControl();
             Destroy(gameObject);
             if (loadScene) {
                 sceneLoader.LoadScene();

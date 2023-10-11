@@ -83,7 +83,7 @@ public class QTE01 : MonoBehaviour, QQuickTimeEvent
         enemyMesh = GameObject.FindGameObjectWithTag("Enemy01Mesh").GetComponent<SkinnedMeshRenderer>();
 
         audioSource.PlayOneShot(jumpScareSound);
-        playerManager.ToggleControl();
+        playerManager.DeactivateControl();
         player.transform.LookAt(transform);
         player.transform.Rotate(-player.transform.eulerAngles.x, 0.0f, 0.0f);
         mesh.enabled = false;
@@ -113,7 +113,7 @@ public class QTE01 : MonoBehaviour, QQuickTimeEvent
         mesh.enabled = true;
         enemyMesh.enabled = false;
         enemyAnimator.enabled = false;
-        playerManager.ToggleControl();
+        playerManager.ActivateControl();
     }
 
     private void ResumePatrol() 

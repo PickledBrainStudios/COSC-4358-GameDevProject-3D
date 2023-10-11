@@ -2,7 +2,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System;
 
 public class Door : MonoBehaviour, IInteractable
 {
@@ -59,6 +58,7 @@ public class Door : MonoBehaviour, IInteractable
         }
         else 
         {
+            playerManager.DeactivateControl();
             audioSource.PlayOneShot(openClip);
             playerManager.spawnName = nextSpawnName;//modify their spawn location, so that when we load the next scene they will spawn in the correct spot
             fadeOut = true;
