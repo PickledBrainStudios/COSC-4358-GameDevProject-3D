@@ -51,7 +51,7 @@ public class Look : MonoBehaviour
     // and figure out the current rotation
     private void OnEnable()
     {
-        Debug.Log("onenable");
+        //Debug.Log("onenable");
         // Reset the state
         velocity = Vector2.zero;
         inputLagTimer = 0;
@@ -59,8 +59,8 @@ public class Look : MonoBehaviour
 
         // Calculate the current rotation by getting the gameObject's local euler angles
         Vector3 euler = transform.localEulerAngles;
-        Debug.Log(euler.x);
-        Debug.Log(transform.localEulerAngles.x);
+        //Debug.Log(euler.x);
+        //Debug.Log(transform.localEulerAngles.x);
         // Euler angles range from [0, 360), but we want [-180, 180)
         if (euler.x >= 180)
         {
@@ -68,7 +68,7 @@ public class Look : MonoBehaviour
         }
         euler.x = ClampVerticalAngle(euler.x);
 
-        Debug.Log(euler.x);
+        //Debug.Log(euler.x);
 
         // Set the angles here to clamp the current rotation
         ////////// Big change here************************************

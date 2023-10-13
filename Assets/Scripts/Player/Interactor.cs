@@ -33,7 +33,7 @@ public class Interactor : MonoBehaviour
         Ray r_0 = new(interactorSource.position, interactorSource.forward);
         if (Physics.Raycast(r_0, out RaycastHit hitInfo_0, interactRange))
         {
-            //Debug.Log(hitInfo_0.collider.gameObject.name);
+            Debug.Log(hitInfo_0.collider.gameObject.name);
             //If your ray collides with something
             if (hitInfo_0.collider.gameObject.TryGetComponent(out IInteractable interactObj))
             {
