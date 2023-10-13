@@ -16,7 +16,6 @@ public class SpawnManager : MonoBehaviour
     private GameObject spawnLocation;
     private RawImage fade;
     private bool postitionPlayer = true;
-    private bool rotatePlayer = true;
     private bool unFreeze = false;
     private bool unFrozen = false;
     private bool fadeIn = false;
@@ -49,7 +48,8 @@ public class SpawnManager : MonoBehaviour
         {
             foreach (string obj in objectsToDestroy)
             {
-                Destroy(GameObject.Find(obj));
+                try { Destroy(GameObject.Find(obj)); }
+                catch { }
             }
         }
     }
@@ -70,7 +70,6 @@ public class SpawnManager : MonoBehaviour
             unFreeze = true;
             fadeIn = true;
             postitionPlayer = false;
-            rotatePlayer = false;
             
         }
         if (unFreeze && !unFrozen)

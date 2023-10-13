@@ -89,7 +89,7 @@ public class Look : MonoBehaviour
         //add lag timer
         inputLagTimer += Time.deltaTime;
         //Get input vector
-        Vector2 input = new Vector2 (
+        Vector2 input = new (
             Input.GetAxis("Mouse X"),
             Input.GetAxis("Mouse Y")
         );
@@ -154,7 +154,7 @@ public class Look : MonoBehaviour
     }
 
     public void ChangeSensitivity() {
-        sensitivity = baseSens * 0.02f * sensitivitySlider.value;
+        sensitivity = 0.02f * sensitivitySlider.value * baseSens;
         //Debug.Log(sensitivity);
     }
     public void ResetLook() { 

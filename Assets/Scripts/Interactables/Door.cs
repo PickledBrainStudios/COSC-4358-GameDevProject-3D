@@ -44,11 +44,12 @@ public class Door : MonoBehaviour, IInteractable
         {
             //if (playerManager.keyInventory.Contains(key)) //check to see if the player has the key in their inventory
             //{
-                //playerManager.spawnName = nextSpawnName;//modify their spawn location, so that when we load the next scene they will spawn in the correct spot
-                //audioSource.PlayOneShot(unlockClip);
-                //SceneManager.LoadScene(nextScene);//load next scene
+            //playerManager.spawnName = nextSpawnName;//modify their spawn location, so that when we load the next scene they will spawn in the correct spot
+            //audioSource.PlayOneShot(unlockClip);
+            //SceneManager.LoadScene(nextScene);//load next scene
             //}
-            audioSource.PlayOneShot(lockedClip);
+            try { audioSource.PlayOneShot(lockedClip); }
+            catch { }
             dialogueText.text = "";
             dialogueText.text = lockedDialogue;
             informPlayer = true;

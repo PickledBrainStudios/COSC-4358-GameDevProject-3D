@@ -21,7 +21,7 @@ public class Movement : MonoBehaviour
     public float footstepTimer = 1.0f;
     private float timer;
     private int stepIndex;
-    private float stepVolume = 0.5f;
+    readonly float stepVolume = 0.5f;
 
     private Transform raySource;
     private bool hardSurface = true;
@@ -47,7 +47,7 @@ public class Movement : MonoBehaviour
             {
                 //Debug.DrawRay(raySource.position, -raySource.up, Color.green);
                 //Debug.Log(hitInfo_0.collider.tag);
-                if (hitInfo_0.collider.gameObject.tag == "HardSurface" || hitInfo_0.collider.gameObject.tag == "Untagged")
+                if (hitInfo_0.collider.gameObject.CompareTag("HardSurface") || hitInfo_0.collider.gameObject.CompareTag("Untagged"))
                 {
                     hardSurface = true;
                 }

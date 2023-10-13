@@ -22,7 +22,7 @@ public class OnCollideSpeak : MonoBehaviour
     }
     private void Update()
     {
-        if (currentLine < dialogueLines.Length && activeDialogue && timerT > 0)
+        if (timerT > 0 && currentLine < dialogueLines.Length && activeDialogue )
         {
             timerT -= Time.deltaTime;
             dialogueText.text = dialogueLines[currentLine];
@@ -33,12 +33,13 @@ public class OnCollideSpeak : MonoBehaviour
             currentLine++;
             timerT = timer;
         }
-        else if (timerT <= 0) {
+        else if (timerT <= 0 && activeDialogue) {
             dialogueText.text = "";
             gameObject.GetComponent<BoxCollider>().enabled = true;
-            if (destroyOnComplete) Destroy(gameObject);
-
+            activeDialogue = false;
+            if (destroyOnComplete && !activeDialogue) Destroy(gameObject);
         }
+        
     }
 
     private void OnTriggerEnter(Collider other)
