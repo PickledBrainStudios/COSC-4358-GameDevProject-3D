@@ -4,10 +4,12 @@ using TMPro;
 
 public class OnCollideSpeak : MonoBehaviour
 {
+    public float pause = 0f;
     public string[] dialogueLines;
     public float timer = 3f;
     public bool destroyOnComplete = false;
 
+    private float timerP;
     private float timerT;
 
     private TextMeshProUGUI dialogueText;
@@ -22,24 +24,29 @@ public class OnCollideSpeak : MonoBehaviour
     }
     private void Update()
     {
-        if (timerT > 0 && currentLine < dialogueLines.Length && activeDialogue )
+        if (timerP > 0) 
         {
-            timerT -= Time.deltaTime;
-            dialogueText.text = dialogueLines[currentLine];
+            timerP -= Time.deltaTime;
         }
-        else if (timerT <= 0 && currentLine < dialogueLines.Length - 1)
-        {
-            //Debug.Log(currentLine + " " + dialogueLines.Length);
-            currentLine++;
-            timerT = timer;
+        else {
+            if (timerT > 0 && currentLine < dialogueLines.Length && activeDialogue)
+            {
+                timerT -= Time.deltaTime;
+                dialogueText.text = dialogueLines[currentLine];
+            }
+            else if (timerT <= 0 && currentLine < dialogueLines.Length - 1)
+            {
+                //Debug.Log(currentLine + " " + dialogueLines.Length);
+                currentLine++;
+                timerT = timer;
+            }
+            else if (timerT <= 0 && activeDialogue) {
+                dialogueText.text = "";
+                gameObject.GetComponent<BoxCollider>().enabled = true;
+                activeDialogue = false;
+                if (destroyOnComplete && !activeDialogue) Destroy(gameObject);
+            }
         }
-        else if (timerT <= 0 && activeDialogue) {
-            dialogueText.text = "";
-            gameObject.GetComponent<BoxCollider>().enabled = true;
-            activeDialogue = false;
-            if (destroyOnComplete && !activeDialogue) Destroy(gameObject);
-        }
-        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -47,6 +54,7 @@ public class OnCollideSpeak : MonoBehaviour
         gameObject.GetComponent<BoxCollider>().enabled = false;
         activeDialogue = true;
         currentLine = 0; // Reset dialog
+        timerP = pause;
         timerT = timer;
     }
 }

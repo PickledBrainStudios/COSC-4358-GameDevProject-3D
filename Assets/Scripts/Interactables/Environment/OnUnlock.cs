@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OnUnlock : MonoBehaviour
 {
-    public OpenDoor door;
+    public PhysicalDoor door;
 
     private Light llight;
     private Material mat;

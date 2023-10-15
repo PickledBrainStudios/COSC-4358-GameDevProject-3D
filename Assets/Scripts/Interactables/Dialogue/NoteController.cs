@@ -15,8 +15,10 @@ public class NoteController : MonoBehaviour, IInteractable
 
     public bool isKey = false;
     public Door door;
+    public PhysicalDoor physicalDoor;
 
     public GameObject[] activate;
+    public GameObject[] destroy;
 
     public bool destroyOnComplete = false;
     public bool destroyObj = false;
@@ -76,6 +78,7 @@ public class NoteController : MonoBehaviour, IInteractable
         }
         else if (Input.GetKeyDown(KeyCode.Space) && activeNote)
         {
+            playerManager.DeactivateControl();
             // Close the note when all dialogue is shown
             CloseNote();
         }
@@ -94,12 +97,22 @@ public class NoteController : MonoBehaviour, IInteractable
         {
             try { door.UnlockDoor(); }
             catch { }
+            try { physicalDoor.UnlockDoor(); }
+            catch { }
         }
 
         try
         {
             foreach (GameObject obj in activate) {
                 obj.SetActive(true);
+            }
+        }
+        catch { }
+        try
+        {
+            foreach (GameObject obj in destroy)
+            {
+                Destroy(obj);
             }
         }
         catch { }

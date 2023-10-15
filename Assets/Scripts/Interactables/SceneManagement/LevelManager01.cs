@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class LevelManager : MonoBehaviour
+public class LevelManager01 : MonoBehaviour
 {
     //Three generators that all need to be activated to unlock the final door
 
     public int numberOfSwitches = 3;
     public GameObject[] toActivate;
     public Door[] doors;
-    public OpenDoor[] openDoors;
+    public PhysicalDoor[] openDoors;
     public GameObject[] toDestory;
 
     private int activeCount = 0;
@@ -19,7 +19,7 @@ public class LevelManager : MonoBehaviour
             {
                 obj.UnlockDoor();
             }
-            foreach (OpenDoor obj in openDoors)
+            foreach (PhysicalDoor obj in openDoors)
             {
                 obj.UnlockDoor();
             }

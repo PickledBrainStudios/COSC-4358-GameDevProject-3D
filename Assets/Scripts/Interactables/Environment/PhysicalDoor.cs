@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 
-public class OpenDoor : MonoBehaviour, IInteractable
+public class PhysicalDoor : MonoBehaviour, IInteractable
 {
     public float degree = 90f;
     public float speed = 0.5f;

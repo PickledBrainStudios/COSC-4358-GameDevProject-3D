@@ -5,10 +5,15 @@ using UnityEngine;
 public class DisableFlashLight : MonoBehaviour
 {
 
+    public AudioClip breakClip;
+    public bool onStay = false;
+
     private GameObject player;
     private FlashLightController flashLight;
     private AudioSource fAudio;
-    public AudioClip breakClip;
+
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,9 +25,18 @@ public class DisableFlashLight : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        flashLight.DeactivateLight();
         fAudio.Stop();
         fAudio.PlayOneShot(breakClip);
-        //Destroy(gameObject);
+        flashLight.DeactivateLight();
+        Destroy(gameObject);
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (onStay) {
+            fAudio.Stop();
+            fAudio.PlayOneShot(breakClip);
+            flashLight.DeactivateLight();
+            Destroy(gameObject);
+        }
     }
 }
