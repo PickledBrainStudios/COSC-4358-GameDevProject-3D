@@ -12,7 +12,7 @@ public class EnemyPatrol : MonoBehaviour
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
-
+        navMeshAgent.speed = patrolSpeed;
         // Initialize the NavMeshAgent to start patrolling
         SetNextWaypoint();
     }

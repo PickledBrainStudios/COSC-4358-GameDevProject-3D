@@ -5,32 +5,37 @@ public class LineOfSight : MonoBehaviour
 {
     public float maxSightDistance = 10f;
     public float fieldOfViewAngle = 45f;
-    public float moveSpeed = 3f;
     public float chaseSpeed = 5f;
     public float chaseDuration = 10f; // Duration of chasing in seconds
     public float patrolCooldown = 5f; // Cooldown time before returning to patrolling
     public float searchingDuration = 2f; // Duration of searching for the player in seconds
     public float headHeight = 0.5f;
 
+    public float walkAnimationSpeed = 1f;
+    public float runAnimationSpeed = 1f;
 
     private Transform player;
-    private Vector3 raySource;
     private NavMeshAgent navMeshAgent;
+    private EnemyPatrol patrol;
     private Animator animator;
+    private Vector3 raySource;
     private bool isChasing = false;
+    private bool isSearchingForPlayer = false;
     private float chaseStartTime;
     private float lastSightingTime;
-    //private Quaternion originalRotation; // Store the original rotation for looking around
-    private bool isSearchingForPlayer = false;
     private float searchingStartTime;
+
+    private AudioSource chaseAudioSource;
+    private AudioSource SFXAudioSource;
+    public AudioClip chaseMusic;
+    public AudioClip jumpScareClip;
     
-
-
-    private EnemyPatrol patrol;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        chaseAudioSource = GameObject.FindGameObjectWithTag("Player_AudioSource_Chase").GetComponent<AudioSource>();
+        SFXAudioSource = GameObject.FindGameObjectWithTag("Player_AudioSource").GetComponent<AudioSource>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         patrol = GetComponent<EnemyPatrol>();
         animator = GetComponent<Animator>();
@@ -53,19 +58,20 @@ public class LineOfSight : MonoBehaviour
         Debug.DrawRay(raySource, halfExtentsRight, Color.red);
         Debug.DrawRay(raySource, halfExtentsLeft, Color.red);
 
-
-
-        if (navMeshAgent.velocity.magnitude > chaseSpeed - .5f)
+        //Debug.Log(navMeshAgent.velocity.magnitude);
+        if (navMeshAgent.velocity.magnitude > chaseSpeed - .5f) //if enemy is running
         {
             animator.SetFloat("speed", 5f);
+            animator.speed = runAnimationSpeed;
             //Debug.Log("Speed: " + animator.speed);
         }
-        else if (navMeshAgent.velocity.magnitude > 0f)
+        else if (navMeshAgent.velocity.magnitude > 0f)  //if enemy is walking
         {
             animator.SetFloat("speed", 3f);
+            animator.speed = walkAnimationSpeed;
             //Debug.Log("Speed: " + animator.speed);
         }
-        else 
+        else // if enemy is standing still
         {
             animator.SetFloat("speed", 0f);
             //Debug.Log("Speed: " + animator.speed);
@@ -86,7 +92,7 @@ public class LineOfSight : MonoBehaviour
                 Debug.Log(hit.collider.tag);
 
                 // Check for obstacles between the enemy and the player
-                if (hit.collider.CompareTag("Player"))
+                if (hit.collider.CompareTag("Player") && !isChasing)
                 {
                     Debug.DrawRay(raySource, directionToPlayer.normalized * maxSightDistance, Color.green);
                     // Player is in line of sight
@@ -132,6 +138,10 @@ public class LineOfSight : MonoBehaviour
     public void StartChasing()
     {
         Debug.Log("Chase started");
+        SFXAudioSource.PlayOneShot(jumpScareClip);
+        chaseAudioSource.Stop();
+        chaseAudioSource.clip = chaseMusic;
+        chaseAudioSource.Play();
         patrol.enabled = false;
         isChasing = true;
         navMeshAgent.speed = chaseSpeed;
@@ -139,6 +149,7 @@ public class LineOfSight : MonoBehaviour
     }
     public void StopChasing()
     {
+        chaseAudioSource.Stop();
         patrol.enabled = true;
         isChasing = false;
         navMeshAgent.speed = patrol.patrolSpeed; // Reset speed to patrolling speed
