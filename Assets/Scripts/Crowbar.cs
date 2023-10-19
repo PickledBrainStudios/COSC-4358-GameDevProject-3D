@@ -8,7 +8,7 @@ public class Crowbar : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager02>();
+        levelManager = GameObject.FindGameObjectWithTag("LevelManager02").GetComponent<LevelManager02>();
     }
 
     public void Interact()

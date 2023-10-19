@@ -20,7 +20,7 @@ public class Plank : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager02>();
+        levelManager = GameObject.FindGameObjectWithTag("LevelManager02").GetComponent<LevelManager02>();
         dialogueText = GameObject.FindWithTag("UI_DialogueBox").GetComponent<TextMeshProUGUI>();
         playerSFX = GameObject.FindGameObjectWithTag("Player_AudioSource_02").GetComponent<AudioSource>();
     }
