@@ -115,6 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6702432044423059927}
+  - component: {fileID: 3214372162640479414}
   m_Layer: 0
   m_Name: DoubleWall
   m_TagString: Untagged
@@ -139,6 +140,26 @@ Transform:
   - {fileID: 8415068758649256962}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &3214372162640479414
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5213585281020840696}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 1.5399933, y: 2.4999998, z: 0}
+  m_Size: 6.171584
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.4
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 5241039364268832120}
+    - renderer: {fileID: 229739532630931499}
+  m_Enabled: 1
 --- !u!1 &7550491922898067341
 GameObject:
   m_ObjectHideFlags: 0
