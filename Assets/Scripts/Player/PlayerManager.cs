@@ -52,7 +52,7 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
         //Updates health UI with health variable
-        if (!isDead) { healthUI.text = "Health: " + health.ToString(); }
+        if (!isDead) { healthUI.text = "Health: " + Mathf.Round(health).ToString(); }
         else { healthUI.text = "Dead"; }
         
 

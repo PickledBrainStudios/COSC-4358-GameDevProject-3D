@@ -6,6 +6,11 @@ public class Movement : MonoBehaviour
     public float sprintSpeed = 10.0f;
     public float crouchSpeed = 2.0f;
 
+    public float staminaDrain = 10f;
+    public float staminaRecovery = 7f;
+    private float stamina = 100f;
+    private bool tired = false;
+
     private float moveX;
     private float moveZ;
     private Vector3 move;
@@ -39,6 +44,11 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(stamina);
+        if (stamina <= 0f) {
+            tired = true;
+        }
+        
         
         Ray r_0 = new(raySource.position, -raySource.up);//cast ray down
         if (Physics.Raycast(r_0, out RaycastHit hitInfo_0))
@@ -72,10 +82,18 @@ public class Movement : MonoBehaviour
         move = transform.right * moveX + transform.forward * moveZ;
         move = move.normalized; //normalize so we only have the direction the player wants to move in relative to the camera,
                                 //this ensures that we don't add up vectors and have magnitues larger than 1 when we press horizontal and vertical movemen
-        // Sprinting
-        if (Input.GetKey(KeyCode.LeftShift) && !crouchScript.isCrouching) //cant sprint if crouched, calculate player speed before applying move
+                                // Sprinting
+        if (Input.GetKey(KeyCode.LeftShift) && !crouchScript.isCrouching && stamina > 0f && !tired) //cant sprint if crouched, calculate player speed before applying move
         {
             playerSpeed = sprintSpeed;
+            stamina -= staminaDrain*Time.deltaTime;
+        }
+        else if (stamina  < 100f)
+        {
+            if (stamina >= 50f) {
+                tired = false;
+            }
+            stamina += staminaRecovery * Time.deltaTime;
         }
 
         // Handling footsteps
