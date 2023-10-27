@@ -7,6 +7,7 @@ public class PauseController : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject userInterfaceMain;
     private PlayerManager playerManager;
+    public bool readingNote = false;
     //private Look look;
     public bool paused = false;
     // Start is called before the first frame update
@@ -21,22 +22,25 @@ public class PauseController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(paused);
-        if (Input.GetKeyDown(KeyCode.Escape) && !paused)
+        if (!readingNote)
         {
-            PauseGame();
-        }
-        else if (Input.GetKeyDown(KeyCode.Escape) && paused)
-        {
-            UnpauseGame();
-        }
-        if (paused)
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else 
-        {
-            Cursor.lockState = CursorLockMode.Locked;
+            //Debug.Log(paused);
+            if (Input.GetKeyDown(KeyCode.Escape) && !paused)
+            {
+                PauseGame();
+            }
+            else if (Input.GetKeyDown(KeyCode.Escape) && paused)
+            {
+                UnpauseGame();
+            }
+            if (paused)
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
         }
     }
     public void PauseGame() 
