@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class Plank : MonoBehaviour, IInteractable
 {
+    public bool hasCrowbar = false;
     public GameObject[] toActivate;
     public GameObject[] toUnlock;
     public float timer = 3f;
@@ -15,12 +16,12 @@ public class Plank : MonoBehaviour, IInteractable
     private TextMeshProUGUI dialogueText;
     private float timerT;
     private bool activeDialogue = false;
+    private bool toolCheck = false;
 
     private AudioSource playerSFX;
 
     private void Start()
     {
-        levelManager = GameObject.FindGameObjectWithTag("LevelManager02").GetComponent<LevelManager02>();
         dialogueText = GameObject.FindWithTag("UI_DialogueBox").GetComponent<TextMeshProUGUI>();
         playerSFX = GameObject.FindGameObjectWithTag("Player_AudioSource_02").GetComponent<AudioSource>();
     }
@@ -44,10 +45,22 @@ public class Plank : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (levelManager.hasCrowbar)
+        try 
+        { 
+            levelManager = GameObject.FindGameObjectWithTag("LevelManager02").GetComponent<LevelManager02>();
+            toolCheck = levelManager.hasCrowbar;
+        }
+        catch 
+        { 
+            levelManager = null;
+            toolCheck = false;
+        }
+        if (hasCrowbar || toolCheck)
         {
             playerSFX.Stop();
-            levelManager.PlankRemoved();
+            try { levelManager.PlankRemoved(); }
+            catch { }
+            
             playerSFX.PlayOneShot(removeSound);
             foreach (GameObject obj in toUnlock)
             {

@@ -44,7 +44,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(stamina);
+        //Debug.Log(stamina);
         if (stamina <= 0f) {
             tired = true;
         }
