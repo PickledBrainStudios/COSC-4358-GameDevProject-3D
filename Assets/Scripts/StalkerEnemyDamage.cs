@@ -10,7 +10,6 @@ public class StalkerEnemyDamage : MonoBehaviour
 
     private Transform player;
     private PlayerManager playerManager;
-    private NavMeshAgent navMeshAgent;
     private Vector3 raySource;
 
 
@@ -49,4 +48,6 @@ public class StalkerEnemyDamage : MonoBehaviour
             }
         }
     }
+
+
 }
