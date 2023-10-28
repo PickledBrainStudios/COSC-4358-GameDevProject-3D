@@ -150,8 +150,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: c52f0b0e644464ca0b066d80091a5c8f, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -160,7 +160,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 6.8066263
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -245,7 +245,7 @@ Transform:
   m_GameObject: {fileID: 38983025}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.37639737, y: -3.000863, z: 1.3152355}
+  m_LocalPosition: {x: -7.21, y: 5.56, z: 5.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -278,7 +278,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 362196ff9c5c52e4dbfebf726a40b61c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -373,7 +373,7 @@ Transform:
   m_GameObject: {fileID: 278245991}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.37639737, y: -3.000863, z: 1.3152355}
+  m_LocalPosition: {x: -10.04, y: -3.000863, z: -4.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -411,9 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ba76004a2591af4a94e16012a49e3fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundClip: {fileID: 8300000, guid: c52f0b0e644464ca0b066d80091a5c8f, type: 3}
   audioSource: {fileID: 38983026}
-  playOnce: 0
 --- !u!65 &375519292
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -442,7 +440,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 375519290}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -494,7 +492,7 @@ Transform:
   m_GameObject: {fileID: 375519290}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.21528244, y: 1.99, z: -0.71}
+  m_LocalPosition: {x: -2.46, y: 1.99, z: -0.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -533,9 +531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ba76004a2591af4a94e16012a49e3fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundClip: {fileID: 8300000, guid: 73cbabf85d53adc44af73d9c1445f62b, type: 3}
   audioSource: {fileID: 278245992}
-  playOnce: 0
 --- !u!65 &1097842191
 BoxCollider:
   m_ObjectHideFlags: 0

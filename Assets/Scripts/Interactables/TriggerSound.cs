@@ -1,29 +1,21 @@
-using System;
 using UnityEngine;
 
 public class TriggerSound : MonoBehaviour
 {
-    public AudioClip soundClip;
     public AudioSource audioSource;
     public bool playOnce = true;
-    private bool played = false;
+    private bool hasPlayed = false;
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource == null)
-        {
-            audioSource = gameObject.AddComponent<AudioSource>();
-            audioSource.clip = soundClip;
-        }
+        audioSource.playOnAwake = false;
     }
 
     private void OnTriggerEnter(Collider other)
-    {
-        if (playOnce && played) return; 
-        if (audioSource.isPlaying) return;
+    {           
+        if (hasPlayed && playOnce) return;
 
-        audioSource.Play();
-        played = true;
+        audioSource.PlayOneShot(audioSource.clip);
+        hasPlayed = true;
     }
 }
