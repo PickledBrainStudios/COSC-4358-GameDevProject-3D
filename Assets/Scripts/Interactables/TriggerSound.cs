@@ -1,11 +1,12 @@
+using System;
 using UnityEngine;
 
-// TODO: - bool
-// TODO: - timer
 public class TriggerSound : MonoBehaviour
 {
     public AudioClip soundClip;
     public AudioSource audioSource;
+    public bool playOnce = true;
+    private bool played = false;
 
     private void Start()
     {
@@ -18,7 +19,11 @@ public class TriggerSound : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
-    {           
+    {
+        if (playOnce && played) return; 
+        if (audioSource.isPlaying) return;
+
         audioSource.Play();
+        played = true;
     }
 }

@@ -413,6 +413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundClip: {fileID: 8300000, guid: c52f0b0e644464ca0b066d80091a5c8f, type: 3}
   audioSource: {fileID: 38983026}
+  playOnce: 0
 --- !u!65 &375519292
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -534,6 +535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundClip: {fileID: 8300000, guid: 73cbabf85d53adc44af73d9c1445f62b, type: 3}
   audioSource: {fileID: 278245992}
+  playOnce: 0
 --- !u!65 &1097842191
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -739,6 +741,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748380504329104737, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748380504329104737, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748380504329104737, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748380504329104737, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748380504329104737, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748380504329104737, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9195877316411427456, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
         type: 3}
