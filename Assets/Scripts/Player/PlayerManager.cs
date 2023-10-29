@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class PlayerManager : MonoBehaviour
@@ -23,6 +24,7 @@ public class PlayerManager : MonoBehaviour
     
     private TextMeshProUGUI healthUI;
     private TextMeshProUGUI centerText;
+    private RawImage heart;
 
     //private GameObject flashLight;
     //public AudioSource audioSource;
@@ -41,8 +43,9 @@ public class PlayerManager : MonoBehaviour
         crouch = GetComponent<Crouch>();
         jump = GetComponent<Jump>();
         
-        healthUI = GameObject.Find("Health").GetComponent<TextMeshProUGUI>();
+        //healthUI = GameObject.Find("Health").GetComponent<TextMeshProUGUI>();
         centerText = GameObject.Find("CenterScreen").GetComponent<TextMeshProUGUI>();
+        heart = GameObject.Find("Heart").GetComponent<RawImage>();
 
         //flashLight = GameObject.Find("FFlashLight");
         //flashLight.SetActive(false);
@@ -52,9 +55,10 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
         //Updates health UI with health variable
-        if (!isDead) { healthUI.text = "Health: " + Mathf.Round(health).ToString(); }
-        else { healthUI.text = "Dead"; }
+        //if (!isDead) { healthUI.text = "Health: " + Mathf.Round(health).ToString(); }
+        //else { healthUI.text = "Dead"; }
         
+        heart.color = new Color(1f, 1f, 1f, (100 - health) * .01f);
 
         //for debugging in the build mode
         if (Input.GetKeyDown(KeyCode.BackQuote))
