@@ -29,6 +29,7 @@ public class NoteController : MonoBehaviour, IInteractable
     private int currentLine = 0;
     private GameObject player;
     private PlayerManager playerManager;
+    private PauseController pauseController;
     private bool activeNote = false;
 
     
@@ -37,6 +38,7 @@ public class NoteController : MonoBehaviour, IInteractable
     {
         player = GameObject.FindGameObjectWithTag("Player");//find player
         playerManager = player.GetComponent<PlayerManager>();//find playerManager Script
+        pauseController = player.GetComponent<PauseController>();
         if (isCharacter)
         {
             dialogueText = GameObject.FindWithTag("UI_DialogueBox").GetComponent<TextMeshProUGUI>();
@@ -62,6 +64,7 @@ public class NoteController : MonoBehaviour, IInteractable
         //gameObject.SetActive(true);
         currentLine = 0; // Reset dialog
         activeNote = true;
+        pauseController.readingNote = true;
         
     }
     private void Update()
@@ -69,14 +72,14 @@ public class NoteController : MonoBehaviour, IInteractable
         if (currentLine < dialogueLines.Length && activeNote)
         {
             playerManager.DeactivateControl();
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.anyKeyDown && !Input.GetKeyDown(KeyCode.Escape))
             {
                 dialogueText.text = dialogueLines[currentLine];
                 currentLine++;
                 //Debug.Log(currentLine + " " + dialogueLines.Length);
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && activeNote)
+        else if (Input.anyKeyDown && !Input.GetKeyDown(KeyCode.Escape) && activeNote)
         {
             playerManager.DeactivateControl();
             // Close the note when all dialogue is shown
@@ -116,6 +119,8 @@ public class NoteController : MonoBehaviour, IInteractable
             }
         }
         catch { }
+
+        pauseController.readingNote = false;
 
         Time.timeScale = 1;
 
