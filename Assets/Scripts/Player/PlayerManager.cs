@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -9,11 +9,8 @@ public class PlayerManager : MonoBehaviour
     public float health = 100;
     private bool isDead = false;
 
-    //This determine the spawn location of the player when they enter a new scene
-    //[HideInInspector]
     public string spawnName = "Default_Spawn";
-
-    //public List<string> keyInventory;
+    public bool inControl = true;
 
     private Interactor interactor;
     private FlashLightController flashLight;
@@ -22,16 +19,14 @@ public class PlayerManager : MonoBehaviour
     private Crouch crouch;
     private Jump jump;
     
-    private TextMeshProUGUI healthUI;
     private TextMeshProUGUI centerText;
     private RawImage heart;
 
-    //private GameObject flashLight;
-    //public AudioSource audioSource;
-    //public AudioClip soundClip;
-    //private bool hasFlashLight = false;
-
     private bool debugMode = false;
+
+    private PlayerInput playerInput;
+    private InputActionMap actionMap;
+
 
     // Start is called befosre the first frame update
     void Awake()
@@ -43,12 +38,12 @@ public class PlayerManager : MonoBehaviour
         crouch = GetComponent<Crouch>();
         jump = GetComponent<Jump>();
         
-        //healthUI = GameObject.Find("Health").GetComponent<TextMeshProUGUI>();
-        centerText = GameObject.Find("CenterScreen").GetComponent<TextMeshProUGUI>();
-        heart = GameObject.Find("Heart").GetComponent<RawImage>();
+        centerText = GameObject.FindGameObjectWithTag("UI_CenterScreen_Dialogue").GetComponent<TextMeshProUGUI>();
+        heart = GameObject.FindGameObjectWithTag("UI_Health").GetComponent<RawImage>();
 
-        //flashLight = GameObject.Find("FFlashLight");
-        //flashLight.SetActive(false);
+        playerInput = GetComponent<PlayerInput>();
+        actionMap = playerInput.actions.FindActionMap("PlayerController");
+
     }
 
     // Update is called once per frame
@@ -80,6 +75,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    /*
     //Toggles player scripts and controls, available to be used in other scripts
     public void ToggleControl()
     {
@@ -97,9 +93,13 @@ public class PlayerManager : MonoBehaviour
         //Debug.Log("flash light toggle");
         flashLight.enabled = !flashLight.enabled;
     }
+    */
 
     public void ActivateControl()
-    {        //Debug.Log("IM TOGGLING CONTROL IN THE FUNCTION");
+    {
+        actionMap.Enable();
+
+        //Debug.Log("IM TOGGLING CONTROL IN THE FUNCTION");
         //Debug.Log("move toggle");
         move.enabled = true;
         //Debug.Log("look toggle");
@@ -112,10 +112,15 @@ public class PlayerManager : MonoBehaviour
         interactor.enabled = true;
         //Debug.Log("flash light toggle");
         flashLight.enabled = true;
+
+        inControl = true;  
     }
 
     public void DeactivateControl()
-    {        //Debug.Log("IM TOGGLING CONTROL IN THE FUNCTION");
+    {
+        actionMap.Disable();
+
+        //Debug.Log("IM TOGGLING CONTROL IN THE FUNCTION");
         //Debug.Log("move toggle");
         move.enabled = false;
         //Debug.Log("look toggle");
@@ -128,6 +133,8 @@ public class PlayerManager : MonoBehaviour
         interactor.enabled = false;
         //Debug.Log("flash light toggle");
         flashLight.enabled = false;
+
+        inControl = false;
     }
 
     //We need this fix so the door and spawn manager scene loads work properly***************
