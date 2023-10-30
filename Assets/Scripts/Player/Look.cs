@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class Look : MonoBehaviour
 {
@@ -35,6 +36,8 @@ public class Look : MonoBehaviour
     private Vector2 rotation; // The current rotation, in degrees
     private Vector2 lastInputEvent; // The last received non-zero input value
     private float inputLagTimer; // The time since the last received non-zero input value
+
+    private Vector2 lookInputValue;
 
     // Start is called a single time before the first frame update
     void Start()
@@ -94,6 +97,11 @@ public class Look : MonoBehaviour
             Input.GetAxis("Mouse Y")
         );
 
+        //for controler
+        input += lookInputValue;
+
+
+
         /* Somtimes at fast frame rates, unity will not recieve input events every frame, which results
          * in zero values being given above. This can cause stuttering and make it difficult to fine tune
          * the acceleration setting. To fix this, disregard zero values. If the lag timer has passed the lag period, we can
@@ -108,7 +116,7 @@ public class Look : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // The wanted velocity is the current input scaled by the sensitivity
         // This is also the maximum velocity
@@ -126,8 +134,8 @@ public class Look : MonoBehaviour
 
         // Calculate new rotation
         velocity = new Vector2(
-            Mathf.MoveTowards(velocity.x, wantedVelocity.x, acceleration.x * Time.deltaTime),
-            Mathf.MoveTowards(velocity.y, wantedVelocity.y, acceleration.y * Time.deltaTime));
+            Mathf.MoveTowards(velocity.x, wantedVelocity.x, acceleration.x * Time.fixedDeltaTime),
+            Mathf.MoveTowards(velocity.y, wantedVelocity.y, acceleration.y * Time.fixedDeltaTime));
         rotation += velocity * Time.deltaTime;
         rotation.y = ClampVerticalAngle(rotation.y);
 
@@ -157,8 +165,12 @@ public class Look : MonoBehaviour
         sensitivity = 0.02f * sensitivitySlider.value * baseSens;
         //Debug.Log(sensitivity);
     }
-    public void ResetLook() { 
-        
+
+    private void OnLook(InputValue value)
+    {
+        lookInputValue = value.Get<Vector2>();
+        //Debug.Log(lookInputValue);
     }
+
 }
 

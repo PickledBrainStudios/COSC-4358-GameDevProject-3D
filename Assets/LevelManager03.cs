@@ -9,6 +9,7 @@ public class LevelManager03 : MonoBehaviour
     public GameObject doorDestroy;
     public GameObject doorActivate;
     public GameObject crow;
+    public GameObject enemy;
     public float timer = 3f;
     public int totalSouls = 10;
     private int souls = 0;
@@ -36,6 +37,9 @@ public class LevelManager03 : MonoBehaviour
             Destroy(doorDestroy);
             doorActivate.SetActive(true);
             Destroy(crow);
+        }
+        if (souls == 5) {
+            enemy.SetActive(true);
         }
     }
 

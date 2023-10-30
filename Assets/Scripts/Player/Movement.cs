@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class Movement : MonoBehaviour
 
     private Transform raySource;
     private bool hardSurface = true;
+
+    private Vector2 moveInputValue;
 
     // Start is called before the first frame update
     void Start()
@@ -82,7 +85,11 @@ public class Movement : MonoBehaviour
         move = transform.right * moveX + transform.forward * moveZ;
         move = move.normalized; //normalize so we only have the direction the player wants to move in relative to the camera,
                                 //this ensures that we don't add up vectors and have magnitues larger than 1 when we press horizontal and vertical movemen
-                                // Sprinting
+
+        //Debug.Log(move);
+        
+        // Sprinting
+
         if (Input.GetKey(KeyCode.LeftShift) && !crouchScript.isCrouching && stamina > 0f && !tired) //cant sprint if crouched, calculate player speed before applying move
         {
             playerSpeed = sprintSpeed;
@@ -137,6 +144,15 @@ public class Movement : MonoBehaviour
         }
 
         //apply movement
-        characterController.Move(Time.deltaTime * playerSpeed * move); 
+        characterController.Move(Time.deltaTime * playerSpeed * move);
+        //characterController.Move(Time.fixedDeltaTime * playerSpeed * new Vector3(moveInputValue.x, 0f, moveInputValue.y));
     }
+
+    private void OnMove(InputValue value)
+    {
+        moveInputValue = value.Get<Vector2>();
+        move = transform.right * moveInputValue.x + transform.forward * moveInputValue.y;
+        //Debug.Log(move);
+    }
+
 }

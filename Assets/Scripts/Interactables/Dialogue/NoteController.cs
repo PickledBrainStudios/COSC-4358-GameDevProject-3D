@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class NoteController : MonoBehaviour, IInteractable
 {
@@ -31,8 +32,10 @@ public class NoteController : MonoBehaviour, IInteractable
     private PlayerManager playerManager;
     private PauseController pauseController;
     private bool activeNote = false;
+    private bool buttonPress = false;
 
-    
+    private PlayerInput playerInput;
+    private InputActionMap actionMap;
 
     private void Start()
     {
@@ -49,11 +52,20 @@ public class NoteController : MonoBehaviour, IInteractable
         }
         rawImage = GameObject.FindWithTag("UI_CenterScreen_Image").GetComponent<RawImage>();
         audioSource = GameObject.FindWithTag("Player_AudioSource").GetComponent<AudioSource>();
+
+        playerInput = player.GetComponent<PlayerInput>();
+        actionMap = playerInput.actions.FindActionMap("ReadingNote");
+        Debug.Log(actionMap);
+
     }
     public void Interact()
     {
         // Display the note when the player interacts with it
         Time.timeScale = 0;
+
+        playerManager.DeactivateControl();
+        playerInput.SwitchCurrentActionMap("ReadingNote");
+
         audioSource.PlayOneShot(pickUpClip);
         dialogueText.text = ""; // Clear text initially
         dialogueText.text = introLine;
@@ -65,25 +77,27 @@ public class NoteController : MonoBehaviour, IInteractable
         currentLine = 0; // Reset dialog
         activeNote = true;
         pauseController.readingNote = true;
-        
     }
     private void Update()
     {
         if (currentLine < dialogueLines.Length && activeNote)
         {
-            playerManager.DeactivateControl();
-            if (Input.anyKeyDown && !Input.GetKeyDown(KeyCode.Escape))
+            if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space)) && !Input.GetKeyDown(KeyCode.Escape))
             {
                 dialogueText.text = dialogueLines[currentLine];
                 currentLine++;
                 //Debug.Log(currentLine + " " + dialogueLines.Length);
             }
         }
-        else if (Input.anyKeyDown && !Input.GetKeyDown(KeyCode.Escape) && activeNote)
+        else if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space)) && activeNote)
         {
-            playerManager.DeactivateControl();
             // Close the note when all dialogue is shown
             CloseNote();
+
+            playerInput.SwitchCurrentActionMap("PlayerController");
+            //actionMap.Disable();
+            playerManager.ActivateControl();
+
         }
     }
     private void CloseNote()
@@ -94,7 +108,7 @@ public class NoteController : MonoBehaviour, IInteractable
         rawImage.enabled = false;
         activeNote = false;
         //gameObject.GetComponent<Renderer>().enabled = true;
-        playerManager.ActivateControl();
+
         dialogueText.text = "";
         if (isKey)
         {
@@ -121,16 +135,38 @@ public class NoteController : MonoBehaviour, IInteractable
         catch { }
 
         pauseController.readingNote = false;
+        
 
         Time.timeScale = 1;
+        if (destroyOnComplete)
+        {
+            playerInput.SwitchCurrentActionMap("PlayerController");
+            //actionMap.Disable();
+            playerManager.ActivateControl();
 
-        if (destroyOnComplete) 
-        { 
-            Destroy(this); 
+            Destroy(this);
         }
         if (destroyObj)
         {
+            playerInput.SwitchCurrentActionMap("PlayerController");
+            //actionMap.Disable();
+            playerManager.ActivateControl();
+
             Destroy(this.gameObject);
         }
+    }
+
+    private void OnContine() {
+        buttonPress = true;
+        buttonPress = false;
+        Debug.Log("FROM NOTE CONTROLLER");
+    }
+
+    private void OnTest() {
+        Debug.Log("FROM NOTE CONTROLLER");
+    }
+
+    private void SwitchActionMap(InputAction.CallbackContext context) {
+        playerInput.SwitchCurrentActionMap("ReadingNote");
     }
 }

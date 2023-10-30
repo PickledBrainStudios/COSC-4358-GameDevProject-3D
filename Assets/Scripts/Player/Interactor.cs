@@ -18,14 +18,19 @@ public class Interactor : MonoBehaviour
     public Texture2D reticle;
     public Texture2D reticleActive;
     private Transform interactorSource;
-    //private TextMeshProUGUI centerText;
+    private PlayerManager playerManager;
+    
     private RawImage rawImage;
+
+    private bool inRange = false;
+    private IInteractable interactObj;
 
     private void Awake()
     {
         interactorSource = Camera.main.transform;
         //centerText = GameObject.Find("CenterScreen").GetComponent<TextMeshProUGUI>();
         rawImage = GameObject.FindWithTag("UI_Reticle").GetComponent<RawImage>();
+        playerManager = GetComponent<PlayerManager>();
     }
 
     void Update()
@@ -35,15 +40,17 @@ public class Interactor : MonoBehaviour
         {
             //Debug.Log(hitInfo_0.collider.gameObject.name);
             //If your ray collides with something
-            if (hitInfo_0.collider.gameObject.TryGetComponent(out IInteractable interactObj))
+            if (hitInfo_0.collider.gameObject.TryGetComponent(out IInteractable obj))
             {
                 //If your ray hits an interactable
                 //Debug.Log("INTERACTIONS");
                 Debug.DrawRay(interactorSource.position, interactorSource.forward * interactRange, Color.green);
                 //centerText.text = "Press E";
+                interactObj = obj;
                 rawImage.texture = reticleActive;
+                inRange = true;
                 if (Input.GetKeyDown(KeyCode.E))
-                    interactObj.Interact();
+                    Action(interactObj);
             }
             else
             {
@@ -51,6 +58,7 @@ public class Interactor : MonoBehaviour
                 //Debug.Log("no interaction");
                 Debug.DrawRay(interactorSource.position, interactorSource.forward * interactRange, Color.red);
                 //centerText.text = "";
+                inRange = false;
                 rawImage.texture = reticle;
             }
         }
@@ -85,4 +93,22 @@ public class Interactor : MonoBehaviour
             qteObj.ActivateQTE();
         }
     }
+
+    private void OnInteract() {
+        if (inRange && playerManager.inControl)
+        {
+            Debug.Log("A Press");
+            Action(interactObj);
+        }
+        else
+        {
+            Debug.Log("NOT IN RANGE - NO CONTROL");
+        }
+    }
+
+    private void Action(IInteractable interactObj) {
+        Debug.Log("INTERACT");
+        interactObj.Interact();
+    }
+
 }
