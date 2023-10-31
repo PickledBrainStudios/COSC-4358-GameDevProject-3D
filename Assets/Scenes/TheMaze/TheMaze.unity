@@ -19120,7 +19120,32 @@ PrefabInstance:
     - target: {fileID: 6636574974953515761, guid: 695264a64e4faa742a5e020c56559364,
         type: 3}
       propertyPath: objectsToDestroy.Array.size
-      value: 1
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6636574974953515761, guid: 695264a64e4faa742a5e020c56559364,
+        type: 3}
+      propertyPath: objectsToDestroy.Array.data[0]
+      value: Singleton_Kitchen
+      objectReference: {fileID: 0}
+    - target: {fileID: 6636574974953515761, guid: 695264a64e4faa742a5e020c56559364,
+        type: 3}
+      propertyPath: objectsToDestroy.Array.data[1]
+      value: Singleton_Backroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 6636574974953515761, guid: 695264a64e4faa742a5e020c56559364,
+        type: 3}
+      propertyPath: objectsToDestroy.Array.data[2]
+      value: Singleton_Diner
+      objectReference: {fileID: 0}
+    - target: {fileID: 6636574974953515761, guid: 695264a64e4faa742a5e020c56559364,
+        type: 3}
+      propertyPath: objectsToDestroy.Array.data[3]
+      value: Crazy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6636574974953515761, guid: 695264a64e4faa742a5e020c56559364,
+        type: 3}
+      propertyPath: objectsToDestroy.Array.data[4]
+      value: Drive
       objectReference: {fileID: 0}
     - target: {fileID: 8917936607814170386, guid: 695264a64e4faa742a5e020c56559364,
         type: 3}
@@ -19564,6 +19589,7 @@ MonoBehaviour:
   enemy: {fileID: 638036731}
   timer: 3
   totalSouls: 10
+  soulsBeforeSpawn: 4
 --- !u!4 &986584450
 Transform:
   m_ObjectHideFlags: 0

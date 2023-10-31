@@ -12,6 +12,7 @@ public class LevelManager03 : MonoBehaviour
     public GameObject enemy;
     public float timer = 3f;
     public int totalSouls = 10;
+    public int soulsBeforeSpawn = 3;
     private int souls = 0;
     private TextMeshProUGUI topRightText;
     
@@ -38,7 +39,7 @@ public class LevelManager03 : MonoBehaviour
             doorActivate.SetActive(true);
             Destroy(crow);
         }
-        if (souls == 5) {
+        if (souls == soulsBeforeSpawn) {
             enemy.SetActive(true);
         }
     }
