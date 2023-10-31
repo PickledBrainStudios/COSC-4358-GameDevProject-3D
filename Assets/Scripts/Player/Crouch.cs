@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class Crouch : MonoBehaviour
 {
@@ -8,11 +10,16 @@ public class Crouch : MonoBehaviour
     private float originalHeight;
     //private Vector3 originalCenter;
     private CharacterController characterController;
+    private PlayerManager playerManager;
+    private RawImage crouch;
 
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        crouch = GameObject.FindGameObjectWithTag("UI_Crouch").GetComponent<RawImage>();
+        playerManager = GetComponent<PlayerManager>();
+        crouch.color = new Color(1f, 1f, 1f, 0f);
         // Store original values for crouching
         //originalCenter = characterController.center;
         originalHeight = characterController.height;
@@ -43,6 +50,7 @@ public class Crouch : MonoBehaviour
             //Debug.Log(crouchDistance);
             //characterController.center = originalCenter / crouchDistance;
             characterController.height = originalHeight / 2f;
+            crouch.color = new Color(1f, 1f, 1f, 0.3f);
             //Debug.Log(characterController.center);
             //Debug.Log(characterController.height);
         }
@@ -50,6 +58,13 @@ public class Crouch : MonoBehaviour
         {
             //characterController.center = originalCenter;
             characterController.height = originalHeight;
+            crouch.color = new Color(1f, 1f, 1f, 0f);
         }
     }
+
+    private void OnCrouch() {
+        if (playerManager.inControl) {ToggleCrouch();}
+        
+    }
+
 }

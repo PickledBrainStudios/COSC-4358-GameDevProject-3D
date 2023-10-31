@@ -70,7 +70,10 @@ public class Door : MonoBehaviour, IInteractable
             //audioSource.PlayOneShot(unlockClip);
             //SceneManager.LoadScene(nextScene);//load next scene
             //}
-            try { audioSource.PlayOneShot(lockedClip); }
+            try {
+                audioSource.Stop();
+                audioSource.PlayOneShot(lockedClip); 
+            }
             catch { }
             dialogueText.text = "";
             dialogueText.text = lockedDialogue;

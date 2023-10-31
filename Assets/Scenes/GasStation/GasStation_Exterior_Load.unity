@@ -279,7 +279,9 @@ MonoBehaviour:
   pickUpClip: {fileID: 0}
   isKey: 0
   door: {fileID: 0}
+  physicalDoor: {fileID: 0}
   activate: []
+  destroy: []
   destroyOnComplete: 0
   destroyObj: 0
 --- !u!114 &168292978
@@ -306,8 +308,10 @@ MonoBehaviour:
   pickUpClip: {fileID: 0}
   isKey: 1
   door: {fileID: 1707979654}
+  physicalDoor: {fileID: 0}
   activate:
   - {fileID: 714117048}
+  destroy: []
   destroyOnComplete: 1
   destroyObj: 0
 --- !u!65 &168292979
@@ -1035,6 +1039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10ee8348b3b1a6d43a2c6d1a794224f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pause: 0
   dialogueLines:
   - I can leave now.
   - I should get into the car and drive to the bus stop down the road.
@@ -2333,7 +2338,9 @@ MonoBehaviour:
   pickUpClip: {fileID: 8300000, guid: 28b5a466e42ce3843a024e196d41f356, type: 3}
   isKey: 1
   door: {fileID: 1730963386}
+  physicalDoor: {fileID: 0}
   activate: []
+  destroy: []
   destroyOnComplete: 0
   destroyObj: 1
 --- !u!114 &1505817409
@@ -2557,7 +2564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e85abc13ededcc4db7e057f1845633c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: BusStop
+  nextScene: Cutscene_Drive
   nextSpawnName: Default_Spawn
   openClip: {fileID: 8300000, guid: 9b5ecc29b00acf1458bc6e63738f1b2e, type: 3}
   fadeSpeed: 1
@@ -3146,7 +3153,9 @@ MonoBehaviour:
   pickUpClip: {fileID: 8300000, guid: fba497f1e6fe18147bccfbd27a13e071, type: 3}
   isKey: 1
   door: {fileID: 486223790}
+  physicalDoor: {fileID: 0}
   activate: []
+  destroy: []
   destroyOnComplete: 0
   destroyObj: 1
 --- !u!64 &1978133565

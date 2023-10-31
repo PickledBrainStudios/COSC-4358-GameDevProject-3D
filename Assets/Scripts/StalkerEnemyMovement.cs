@@ -4,8 +4,10 @@ using UnityEngine.AI;
 public class StalkerEnemyMovement : MonoBehaviour
 {
     public float movementSpeed = 1f;
+    public Transform startingPosition;
     private UnityEngine.AI.NavMeshAgent navMeshAgent;
     private GameObject player;
+    public bool safeZoned = false;
 
 
     void Start()
@@ -17,6 +19,13 @@ public class StalkerEnemyMovement : MonoBehaviour
 
     void Update()
     {
-        navMeshAgent.SetDestination(player.transform.position);
+        if (!safeZoned)
+        {
+            navMeshAgent.SetDestination(player.transform.position);
+        }
+        else
+        {
+            navMeshAgent.SetDestination(startingPosition.position);
+        }
     }
 }
