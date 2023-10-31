@@ -1380,7 +1380,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123542020226049490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.94742286, y: 0.94742286, z: 0.94742286}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1388,7 +1388,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 41, y: 70}
+  m_AnchoredPosition: {x: 58.2, y: 105}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5587360223128339475
@@ -1419,7 +1419,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0/10
+  m_text: 'Souls: 0/10'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f0dc7bd606b8a9d4f85d6dea8d8506a6, type: 2}
   m_sharedMaterial: {fileID: -1783369325906214915, guid: f0dc7bd606b8a9d4f85d6dea8d8506a6,
@@ -1483,7 +1483,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 4.811325, y: 324.17004, z: 297.6392, w: 0}
+  m_margin: {x: -243.99307, y: 324.17004, z: 297.6392, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -7230,12 +7230,6 @@ MonoBehaviour:
   health: 100
   spawnName: Default_Spawn
   inControl: 1
-  actionMap:
-    m_Name: Action Map
-    m_Id: ee94ffa0-5885-4022-90fc-5cc645d9a9e9
-    m_Asset: {fileID: 0}
-    m_Actions: []
-    m_Bindings: []
 --- !u!114 &9126425004499600531
 MonoBehaviour:
   m_ObjectHideFlags: 0

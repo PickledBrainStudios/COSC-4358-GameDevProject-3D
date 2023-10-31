@@ -51,12 +51,12 @@ public class LevelManager03 : MonoBehaviour
     public void CollectSoul() {
         counter = timer;
         souls++;
-        topRightText.text = souls.ToString() + "/" + totalSouls.ToString();
+        topRightText.text = "Souls: " + souls.ToString() + "/" + totalSouls.ToString();
         topRightText.alpha = 1f;
     }
 
     public void StartSearch() {
-        topRightText.text = souls.ToString() + "/" + totalSouls.ToString();
+        topRightText.text = "Souls: " + souls.ToString() + "/" + totalSouls.ToString();
         topRightText.alpha = 1f;
         counter = timer;
     }
