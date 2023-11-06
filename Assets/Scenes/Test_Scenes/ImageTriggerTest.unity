@@ -262,6 +262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   imageTexture: {fileID: 2800000, guid: d03c4060c38a4784b9b6cc0c2bd7471b, type: 3}
+  jumpScareSound: {fileID: 8300000, guid: c52f0b0e644464ca0b066d80091a5c8f, type: 3}
   time: 1
 --- !u!65 &106416249
 BoxCollider:
@@ -569,6 +570,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906873457476669374, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.00012207031
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906873457476669374, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.00012207031
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
