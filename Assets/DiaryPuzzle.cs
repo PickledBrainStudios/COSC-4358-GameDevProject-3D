@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DiaryPuzzle : MonoBehaviour
@@ -8,15 +6,13 @@ public class DiaryPuzzle : MonoBehaviour
     public int pages = 0;
     public int totalPages = 5;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject[] activate;
+    public GameObject[] destroy;
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(pages);
         if (pages >= totalPages) {
             PuzzleComplete();
         }
@@ -26,8 +22,14 @@ public class DiaryPuzzle : MonoBehaviour
         pages++;
     }
 
-    private void PuzzleComplete() { 
-    
+    private void PuzzleComplete() {
+        foreach (GameObject obj in destroy) {
+            Destroy(obj);
+        }
+        foreach (GameObject obj in activate)
+        {
+            obj.SetActive(true);
+        }
     }
 
 }
