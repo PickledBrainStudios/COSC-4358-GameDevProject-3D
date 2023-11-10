@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
@@ -34,6 +35,8 @@ public class Movement : MonoBehaviour
 
     private Vector2 moveInputValue;
 
+    private RawImage lungs;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,11 +45,20 @@ public class Movement : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         timer = footstepTimer;
         raySource = gameObject.transform;
+        lungs = GameObject.FindGameObjectWithTag("UI_Lung").GetComponent<RawImage>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (stamina < 50f)
+        {
+            lungs.color = new Color(1f, (stamina * .01f), (stamina * .01f), (1f - (stamina * .01f)));
+        }
+        else {
+            lungs.color = new Color(1f, 1f, 1f, (1f - (stamina * .01f)));
+        }
+        
         //Debug.Log(stamina);
         if (stamina <= 0f) {
             tired = true;
