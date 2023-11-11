@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RitualPuzzle : MonoBehaviour
@@ -7,6 +5,7 @@ public class RitualPuzzle : MonoBehaviour
 
     public int candleTarget = 5;
     private int candles = 0;
+    private int matches = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +18,10 @@ public class RitualPuzzle : MonoBehaviour
         if (candles >= candleTarget) {
             PuzzleComplete();
         }
+    }
+
+    public void CollectMatches() {
+        matches++;
     }
 
     public void LightCandles() {

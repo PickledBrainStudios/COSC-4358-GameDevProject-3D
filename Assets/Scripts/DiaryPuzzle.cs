@@ -12,7 +12,7 @@ public class DiaryPuzzle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(pages);
+        //Debug.Log(pages);
         if (pages >= totalPages) {
             PuzzleComplete();
         }

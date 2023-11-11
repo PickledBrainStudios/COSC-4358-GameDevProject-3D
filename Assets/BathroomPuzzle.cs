@@ -6,9 +6,11 @@ public class BathroomPuzzle : MonoBehaviour
 {
 
     public float timerTarget = 30f;
+    public PhysicalDoor door;
     private float timer = 0;
 
     private bool lightsOff = false;
+    private bool testStarted = false;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +21,8 @@ public class BathroomPuzzle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (lightsOff)
+        Debug.Log(timer);
+        if (lightsOff && testStarted)
         {
             timer += Time.deltaTime;
         }
@@ -35,7 +38,12 @@ public class BathroomPuzzle : MonoBehaviour
         lightsOff = !lightsOff;
     }
 
-    private void PuzzleComplete() { 
-        
+    private void PuzzleComplete() {
+        Debug.Log("COMPLETE!");
+        testStarted = false;
+        door.UnlockDoor();
+    }
+    public void StartTest() {
+        testStarted = true;
     }
 }

@@ -9,7 +9,7 @@ public class PhysicalDoor : MonoBehaviour, IInteractable
     public AudioClip openClip;
     public AudioClip closeClip;
     private AudioSource audioSource;
-    private bool isOpen = false;
+    public bool isOpen = false;
     private bool coroutineRunning = false;
 
     public bool locked = false;
@@ -28,10 +28,7 @@ public class PhysicalDoor : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        if (locked)
-        {
-            dialogueText = GameObject.FindWithTag("UI_DialogueBox").GetComponent<TextMeshProUGUI>();
-        }
+        dialogueText = GameObject.FindWithTag("UI_DialogueBox").GetComponent<TextMeshProUGUI>();
         audioSource = GameObject.FindWithTag("Player_AudioSource").GetComponent<AudioSource>();
     }
 
@@ -92,7 +89,7 @@ public class PhysicalDoor : MonoBehaviour, IInteractable
         }
     }
 
-    public void lockDoor()
+    public void LockDoor()
     {
         locked = true;
     }
@@ -100,6 +97,26 @@ public class PhysicalDoor : MonoBehaviour, IInteractable
     public void UnlockDoor()
     {
         locked = false;
+    }
+
+    public void CloseDoor() {
+        if (isOpen && !coroutineRunning) {
+            try { audioSource.PlayOneShot(closeClip); } //play the close door audio
+            catch { }
+            StartCoroutine(rotateObject(gameObject.transform.rotation, Quaternion.Euler(gameObject.transform.eulerAngles.x, gameObject.transform.eulerAngles.y - degree, gameObject.transform.eulerAngles.z), speed));
+            //gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, Quaternion.Euler(gameObject.transform.eulerAngles.x, gameObject.transform.eulerAngles.y - degree, gameObject.transform.eulerAngles.z), speed);
+            isOpen = false;
+        }
+    }
+
+    public void OpenDoor() {
+        if (!isOpen && !coroutineRunning) {
+            try { audioSource.PlayOneShot(openClip); } //play the open door audio
+            catch { }
+            StartCoroutine(rotateObject(gameObject.transform.rotation, Quaternion.Euler(gameObject.transform.eulerAngles.x, gameObject.transform.eulerAngles.y + degree, gameObject.transform.eulerAngles.z), speed));
+            //gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, Quaternion.Euler(gameObject.transform.eulerAngles.x, gameObject.transform.eulerAngles.y + degree, gameObject.transform.eulerAngles.z), speed);
+            isOpen = true;
+        }
     }
 
 }

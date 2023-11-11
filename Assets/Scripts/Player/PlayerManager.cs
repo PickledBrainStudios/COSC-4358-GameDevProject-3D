@@ -18,6 +18,7 @@ public class PlayerManager : MonoBehaviour
     private Look look;
     private Crouch crouch;
     private Jump jump;
+    private PauseController pause;
     
     private TextMeshProUGUI centerText;
     private RawImage heart;
@@ -37,6 +38,7 @@ public class PlayerManager : MonoBehaviour
         look = GetComponent<Look>();
         crouch = GetComponent<Crouch>();
         jump = GetComponent<Jump>();
+        pause = GetComponent<PauseController>();
         
         centerText = GameObject.FindGameObjectWithTag("UI_CenterScreen_Dialogue").GetComponent<TextMeshProUGUI>();
         heart = GameObject.FindGameObjectWithTag("UI_Health").GetComponent<RawImage>();
@@ -113,6 +115,8 @@ public class PlayerManager : MonoBehaviour
         //Debug.Log("flash light toggle");
         flashLight.enabled = true;
 
+        pause.enabled = true;
+
         inControl = true;  
     }
 
@@ -133,6 +137,8 @@ public class PlayerManager : MonoBehaviour
         interactor.enabled = false;
         //Debug.Log("flash light toggle");
         flashLight.enabled = false;
+
+        pause.enabled = false;
 
         inControl = false;
     }
