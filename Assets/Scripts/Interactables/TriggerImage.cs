@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,24 +23,33 @@ public class TriggerImage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("Player") && !activated)
+        {
+            StartCoroutine(DisplayImage());
+        }
+    }
+
+    private IEnumerator DisplayImage()
+    {
         playerManager.DeactivateControl();
         jumpScareImage.texture = imageTexture;
         jumpScareImage.enabled = true;
+
         activated = true;
         jumpScareAudio.PlayOneShot(jumpScareSound);
-    }
 
-    void Update()
-    {
-        if (activated) {
-            time -= Time.deltaTime;
-        }
-        if (time <= 0) {
-            activated = false;
-            jumpScareImage.enabled = false;
-            playerManager.ActivateControl();
-            Destroy(gameObject);
-        }
+        Vector2 originalSizeDelta = jumpScareImage.rectTransform.sizeDelta;
+        float textureAspect = (float)imageTexture.width / imageTexture.height;
+        jumpScareImage.rectTransform.sizeDelta = new Vector2(jumpScareImage.rectTransform.sizeDelta.y * textureAspect, jumpScareImage.rectTransform.sizeDelta.y);
+
+        yield return new WaitForSeconds(time);
+
+        jumpScareImage.rectTransform.sizeDelta = originalSizeDelta;
+
+        activated = false;
+        jumpScareImage.enabled = false;
+        playerManager.ActivateControl();
+        Destroy(gameObject);
     }
 }
 
