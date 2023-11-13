@@ -11,12 +11,16 @@ public class Candle : MonoBehaviour, IInteractable
     private bool lit = false;
 
     private Renderer candleRenderer;
+    new private Light light;
+
+    public RitualPuzzle ritual;
 
 
     // Start is called before the first frame update
     void Start()
     {
         candleRenderer = gameObject.GetComponent<Renderer>();
+        light = gameObject.GetComponent<Light>();
     }
 
     // Update is called once per frame
@@ -26,13 +30,25 @@ public class Candle : MonoBehaviour, IInteractable
     }
 
     public void Interact() {
-        ToggleLight();
-        if (lit)
+        if (ritual.matches > 0)
         {
-            candleRenderer.material = candleOffMat;
+            if (lit)
+            {
+                candleRenderer.material = candleOffMat;
+                light.enabled = false;
+            }
+            else
+            {
+                candleRenderer.material = candleOnMat;
+                light.enabled = true;
+            }
+            ToggleLight();
+            ritual.LightCandles();
+            Destroy(this);
         }
-        else {
-            candleRenderer.material = candleOnMat;
+        else 
+        {
+            Debug.Log("You dont have enough matches...");
         }
     }
 

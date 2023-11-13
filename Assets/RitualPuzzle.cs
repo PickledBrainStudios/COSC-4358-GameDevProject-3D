@@ -4,8 +4,9 @@ public class RitualPuzzle : MonoBehaviour
 {
 
     public int candleTarget = 5;
+    public int matches = 0;
     private int candles = 0;
-    private int matches = 0;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -20,15 +21,16 @@ public class RitualPuzzle : MonoBehaviour
         }
     }
 
-    public void CollectMatches() {
-        matches++;
+    public void CollectMatches(int num) {
+        matches += num;
     }
 
     public void LightCandles() {
         candles++;
+        matches--;
     }
 
-    private void PuzzleComplete() { 
-        
+    private void PuzzleComplete() {
+        Debug.Log("PUZZLE COMPLETE!");
     }
 }
