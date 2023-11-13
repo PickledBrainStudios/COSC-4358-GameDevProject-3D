@@ -7,6 +7,10 @@ public class BathroomPuzzle : MonoBehaviour
 
     public float timerTarget = 30f;
     public PhysicalDoor door;
+
+    public GameObject[] activate;
+    public GameObject[] destroy;
+
     private float timer = 0;
 
     private bool lightsOff = false;
@@ -42,6 +46,24 @@ public class BathroomPuzzle : MonoBehaviour
         Debug.Log("COMPLETE!");
         testStarted = false;
         door.UnlockDoor();
+
+        try
+        {
+            foreach (GameObject obj in destroy)
+            {
+                Destroy(obj);
+            }
+        }
+        catch { }
+        try
+        {
+            foreach (GameObject obj in activate)
+            {
+                obj.SetActive(true);
+            }
+        }
+        catch { }
+
     }
     public void StartTest() {
         testStarted = true;

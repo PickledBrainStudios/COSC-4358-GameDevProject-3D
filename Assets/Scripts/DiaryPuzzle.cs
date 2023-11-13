@@ -23,13 +23,22 @@ public class DiaryPuzzle : MonoBehaviour
     }
 
     private void PuzzleComplete() {
-        foreach (GameObject obj in destroy) {
-            Destroy(obj);
-        }
-        foreach (GameObject obj in activate)
+        try
         {
-            obj.SetActive(true);
+            foreach (GameObject obj in destroy)
+            {
+                Destroy(obj);
+            }
         }
+        catch { }
+        try
+        {
+            foreach (GameObject obj in activate)
+            {
+                obj.SetActive(true);
+            }
+        }
+        catch { }
     }
 
 }

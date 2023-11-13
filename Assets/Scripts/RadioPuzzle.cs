@@ -14,6 +14,9 @@ public class RadioPuzzle : MonoBehaviour, IInteractable
     public RectTransform rightKnob;
     public GameObject radioUI;
 
+    public GameObject[] activate;
+    public GameObject[] destroy; 
+
     private PlayerManager playerManager;
     private bool usingRadio = false;
     private int leftDialValue;
@@ -66,7 +69,6 @@ public class RadioPuzzle : MonoBehaviour, IInteractable
     }
     public void ChangeDial02()
     {
-
         rightDialValue = (int)rightDialSlider.value;
         rightKnob.rotation = Quaternion.Euler(0, 0, -rightDialValue * 8.65f + 124f);
         Debug.Log(rightDialValue);
@@ -74,5 +76,28 @@ public class RadioPuzzle : MonoBehaviour, IInteractable
 
     private void CompletePuzzle() {
         Debug.Log("Puzzle Complete!");
+        try
+        {
+            foreach (GameObject obj in destroy)
+            {
+                Destroy(obj);
+            }
+        }
+        catch { }
+        try
+        {
+            foreach (GameObject obj in activate)
+            {
+                obj.SetActive(true);
+            }
+        }
+        catch { }
+
+        radioUI.SetActive(false);
+        usingRadio = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        playerManager.ActivateControl();
+
+        Destroy(gameObject);
     }
 }

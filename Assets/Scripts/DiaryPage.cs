@@ -12,6 +12,9 @@ public class DiaryPage : MonoBehaviour, IInteractable
 
     public AudioClip pickUpClip;
 
+    public GameObject[] activate;
+    public GameObject[] destroy;
+
     private AudioSource audioSource;
     private TextMeshProUGUI dialogueText;
     private RawImage rawImage;
@@ -84,6 +87,21 @@ public class DiaryPage : MonoBehaviour, IInteractable
         pauseController.readingNote = false;
         diaryPuzzle.PickUpPage();
         Time.timeScale = 1;
+        try {        
+            foreach (GameObject obj in destroy)
+            {
+                Destroy(obj);
+            } 
+        }
+        catch { }
+        try {        
+            foreach (GameObject obj in activate)
+            {   
+                obj.SetActive(true);
+            } 
+        }
+        catch { }
+
         Destroy(this.gameObject);
     }
 }
