@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TriggerSound : MonoBehaviour
+public class TriggerSoundTest : MonoBehaviour
 {
     public AudioSource audioSource;
     public bool playOnce = true;

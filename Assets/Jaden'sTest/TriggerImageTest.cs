@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TriggerImage : MonoBehaviour
+public class TriggerImageTest : MonoBehaviour
 {
     public Texture2D imageTexture;
     public AudioClip jumpScareSound;
