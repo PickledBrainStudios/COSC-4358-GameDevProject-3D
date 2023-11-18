@@ -5,6 +5,10 @@ public class RitualPuzzle : MonoBehaviour
 
     public int candleTarget = 5;
     public int matches = 0;
+
+    public GameObject[] activate;
+    public GameObject[] destroy;
+
     private int candles = 0;
     
     // Start is called before the first frame update
@@ -32,5 +36,21 @@ public class RitualPuzzle : MonoBehaviour
 
     private void PuzzleComplete() {
         Debug.Log("PUZZLE COMPLETE!");
+        try
+        {
+            foreach (GameObject obj in destroy)
+            {
+                Destroy(obj);
+            }
+        }
+        catch { }
+        try
+        {
+            foreach (GameObject obj in activate)
+            {
+                obj.SetActive(true);
+            }
+        }
+        catch { }
     }
 }
