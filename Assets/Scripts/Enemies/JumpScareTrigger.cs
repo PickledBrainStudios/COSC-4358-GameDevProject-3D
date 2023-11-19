@@ -16,9 +16,6 @@ public class JumpScareTrigger : MonoBehaviour
     private SkinnedMeshRenderer enemyMesh;
     private SceneLoader sceneLoader;
 
-    
-
-
     // Start is called before the first frame update
     void Start()
     {

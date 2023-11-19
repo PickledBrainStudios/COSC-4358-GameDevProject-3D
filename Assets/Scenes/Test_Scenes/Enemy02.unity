@@ -780,6 +780,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2332737946216737099, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 58.200195
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332737946216737099, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 105.000244
+      objectReference: {fileID: 0}
     - target: {fileID: 3826550361758985451, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
         type: 3}
       propertyPath: staminaDrain
@@ -794,6 +804,16 @@ PrefabInstance:
         type: 3}
       propertyPath: hasFlashLight
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210131127389778484, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5346572307314004726, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
+        type: 3}
+      propertyPath: m_TagString
+      value: JumpScare_dad
       objectReference: {fileID: 0}
     - target: {fileID: 8748380504329104737, guid: 2ebc19dcc7cbce54087523ea6819b7a9,
         type: 3}
@@ -2040,7 +2060,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &3923714212075109951
 Animator:
   serializedVersion: 5
@@ -2876,6 +2896,10 @@ PrefabInstance:
     - target: {fileID: 9151290855612335, guid: d33bd6a9ebaa49446977b52ddbc718c0, type: 3}
       propertyPath: m_Name
       value: StalkerEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 9151290855612335, guid: d33bd6a9ebaa49446977b52ddbc718c0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8281243803384066347, guid: d33bd6a9ebaa49446977b52ddbc718c0,
         type: 3}
