@@ -624,6 +624,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Note01
       objectReference: {fileID: 0}
+    - target: {fileID: 5025004995019997108, guid: 93f00092589a7eb4293bd1c68b19dcd0,
+        type: 3}
+      propertyPath: dialogueLines.Array.data[0]
+      value: "\"Whispering Pines \u2014 In recent weeks, the tranquil town of Whispering
+        Pines has been gripped by an unnerving series of mysterious disappearances
+        that have left residents and authorities baffled. While official investigations
+        are still underway, some locals believe these events may be a precursor to
+        more sinister things to come.\" "
+      objectReference: {fileID: 0}
+    - target: {fileID: 5025004995019997108, guid: 93f00092589a7eb4293bd1c68b19dcd0,
+        type: 3}
+      propertyPath: dialogueLines.Array.data[1]
+      value: '"The eerie string of vanishing incidents began several months ago,
+        with the latest disappearance reported just last week. All the missing individuals
+        seem to share a common thread: their sudden and unexplained involvement with..."'
+      objectReference: {fileID: 0}
     - target: {fileID: 9103510615448744599, guid: 93f00092589a7eb4293bd1c68b19dcd0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4929,6 +4945,8 @@ MonoBehaviour:
   dialogueTimer: 0
   lockedClip: {fileID: 0}
   unlockClip: {fileID: 0}
+  destroyEnemyTag: Enemy01
+  toDestory: []
 --- !u!4 &9011164718829457756
 Transform:
   m_ObjectHideFlags: 0
