@@ -1106,8 +1106,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162679047}
   m_Mesh: {fileID: -4608919602710587159, guid: 67d6e38d7e3ce114e99c2b3c5ef154d5, type: 3}
---- !u!65 &162679051
-BoxCollider:
+--- !u!64 &162679051
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1124,9 +1124,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.00514511, y: 0.0064331274, z: 0.0051791887}
-  m_Center: {x: -0.00033731607, y: 0.000001497226, z: -0.0008949671}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4608919602710587159, guid: 67d6e38d7e3ce114e99c2b3c5ef154d5, type: 3}
 --- !u!1 &167393390
 GameObject:
   m_ObjectHideFlags: 0
@@ -2432,7 +2433,9 @@ MonoBehaviour:
   pickUpClip: {fileID: 8300000, guid: ae09a8c589645004ea5dd5e4d5802af7, type: 3}
   isKey: 0
   door: {fileID: 0}
+  physicalDoor: {fileID: 0}
   activate: []
+  destroy: []
   destroyOnComplete: 0
   destroyObj: 0
 --- !u!1 &388535766
@@ -3164,7 +3167,9 @@ MonoBehaviour:
   pickUpClip: {fileID: 0}
   isKey: 0
   door: {fileID: 0}
+  physicalDoor: {fileID: 0}
   activate: []
+  destroy: []
   destroyOnComplete: 0
   destroyObj: 0
 --- !u!65 &477707232
@@ -4101,7 +4106,9 @@ MonoBehaviour:
   pickUpClip: {fileID: 0}
   isKey: 0
   door: {fileID: 0}
+  physicalDoor: {fileID: 0}
   activate: []
+  destroy: []
   destroyOnComplete: 0
   destroyObj: 0
 --- !u!65 &685237878
