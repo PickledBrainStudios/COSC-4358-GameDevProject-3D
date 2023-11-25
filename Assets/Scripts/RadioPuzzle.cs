@@ -6,6 +6,7 @@ public class RadioPuzzle : MonoBehaviour, IInteractable
 
     //player will roll two dials to a specific tuning to get the radio to sound off
 
+    public AudioSource radio;
     public int targetLeftDial;
     public int targetRightDial;
     public Slider leftDialSlider;
@@ -16,7 +17,9 @@ public class RadioPuzzle : MonoBehaviour, IInteractable
     public AudioClip radioClicks;
 
     public GameObject[] activate;
-    public GameObject[] destroy; 
+    public GameObject[] destroy;
+
+    
 
     private PlayerManager playerManager;
     private bool usingRadio = false;
@@ -66,9 +69,12 @@ public class RadioPuzzle : MonoBehaviour, IInteractable
 
     public void ChangeDial01()
     {
+        
         audioSource.Stop();
         audioSource.PlayOneShot(radioClicks);
         leftDialValue = (int)leftDialSlider.value;
+        float mag = Mathf.Abs(targetLeftDial - leftDialValue) * 0.008f;
+        radio.pitch = 1 - mag;
         leftKnob.rotation = Quaternion.Euler(0, 0, -leftDialValue * 8.65f + 124f);
         Debug.Log(leftDialValue);
     }
@@ -77,6 +83,8 @@ public class RadioPuzzle : MonoBehaviour, IInteractable
         audioSource.Stop();
         audioSource.PlayOneShot(radioClicks);
         rightDialValue = (int)rightDialSlider.value;
+        float mag = Mathf.Abs(targetRightDial - rightDialValue) *.008f;
+        radio.pitch = 1 + mag;
         rightKnob.rotation = Quaternion.Euler(0, 0, -rightDialValue * 8.65f + 124f);
         Debug.Log(rightDialValue);
     }
