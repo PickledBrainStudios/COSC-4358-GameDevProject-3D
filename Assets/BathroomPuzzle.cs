@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BathroomPuzzle : MonoBehaviour
 {
-
     public float timerTarget = 30f;
     public PhysicalDoor door;
 
@@ -15,12 +14,6 @@ public class BathroomPuzzle : MonoBehaviour
 
     private bool lightsOff = false;
     private bool testStarted = false;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

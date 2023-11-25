@@ -8,8 +8,14 @@ public class LightSwitchPuzzle : MonoBehaviour, IInteractable
     public BathroomPuzzle bathroomManager;
     public PhysicalDoor door;
 
+    public AudioSource audioSource;
+    public AudioClip audioClip;
+
+    private bool active = true;
+
     public void Interact()
     {
+        active = !active;
         foreach (GameObject obj in gameObjs)
         {
             obj.SetActive(!obj.activeSelf);
@@ -24,6 +30,15 @@ public class LightSwitchPuzzle : MonoBehaviour, IInteractable
         else {
             door.CloseDoor();
             door.LockDoor();
+        }
+        if (!active)
+        {
+            audioSource.Stop();
+            audioSource.PlayOneShot(audioClip);
+        }
+        else 
+        {
+            audioSource.Stop();
         }
     }
 }
