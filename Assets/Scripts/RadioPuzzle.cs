@@ -13,6 +13,7 @@ public class RadioPuzzle : MonoBehaviour, IInteractable
     public RectTransform leftKnob;
     public RectTransform rightKnob;
     public GameObject radioUI;
+    public AudioClip radioClicks;
 
     public GameObject[] activate;
     public GameObject[] destroy; 
@@ -21,11 +22,14 @@ public class RadioPuzzle : MonoBehaviour, IInteractable
     private bool usingRadio = false;
     private int leftDialValue;
     private int rightDialValue;
+    private AudioSource audioSource;
+
 
     // Start is called before the first frame update
     void Start()
     {
         playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+        audioSource = GameObject.FindGameObjectWithTag("Player_AudioSource_02").GetComponent<AudioSource>();
         leftDialValue = (int)leftDialSlider.value;
     }
 
@@ -62,13 +66,16 @@ public class RadioPuzzle : MonoBehaviour, IInteractable
 
     public void ChangeDial01()
     {
-        
+        audioSource.Stop();
+        audioSource.PlayOneShot(radioClicks);
         leftDialValue = (int)leftDialSlider.value;
         leftKnob.rotation = Quaternion.Euler(0, 0, -leftDialValue * 8.65f + 124f);
         Debug.Log(leftDialValue);
     }
     public void ChangeDial02()
     {
+        audioSource.Stop();
+        audioSource.PlayOneShot(radioClicks);
         rightDialValue = (int)rightDialSlider.value;
         rightKnob.rotation = Quaternion.Euler(0, 0, -rightDialValue * 8.65f + 124f);
         Debug.Log(rightDialValue);
