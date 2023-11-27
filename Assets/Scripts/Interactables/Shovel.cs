@@ -11,7 +11,7 @@ public class Shovel : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        audioSource = GameObject.FindGameObjectWithTag("Player_AudioSource").GetComponent<AudioSource>();
+        audioSource = GameObject.FindGameObjectWithTag("Player_AudioSource_02").GetComponent<AudioSource>();
     }
 
     public void Interact() {
