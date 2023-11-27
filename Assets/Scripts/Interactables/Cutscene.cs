@@ -8,12 +8,17 @@ public class Cutscene : MonoBehaviour
     private GameObject player;
     private VideoPlayer myVideo;
     private SceneLoader loader;
-    private float timer = 3f;
+    public float timer = 3f;
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        player.SetActive(false);
+        try
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            player.SetActive(false);
+        }
+        catch { }
+
         myVideo = GetComponent<VideoPlayer>();
         loader = GetComponent<SceneLoader>();
         myVideo.Play();
@@ -30,7 +35,8 @@ public class Cutscene : MonoBehaviour
         {
             Debug.Log(myVideo.isPlaying);
             if (!myVideo.isPlaying) {
-                player.SetActive(true);
+                try { player.SetActive(true); }
+                catch { }
                 loader.LoadScene();
             }
         }
