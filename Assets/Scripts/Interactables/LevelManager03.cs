@@ -15,12 +15,13 @@ public class LevelManager03 : MonoBehaviour
     public int soulsBeforeSpawn = 3;
     private int souls = 0;
     private TextMeshProUGUI topRightText;
-    
+
     private float counter;
 
     private void Start()
     {
         topRightText = GameObject.FindGameObjectWithTag("UI_TopRight").GetComponent<TextMeshProUGUI>();
+        //pauseTopRightText = GameObject.FindGameObjectWithTag("Pause_TopRight").GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -53,11 +54,13 @@ public class LevelManager03 : MonoBehaviour
         souls++;
         topRightText.text = "Souls: " + souls.ToString() + "/" + totalSouls.ToString();
         topRightText.alpha = 1f;
+        //pauseTopRightText.text = "Souls: " + souls.ToString() + "/" + totalSouls.ToString();
     }
 
     public void StartSearch() {
         topRightText.text = "Souls: " + souls.ToString() + "/" + totalSouls.ToString();
         topRightText.alpha = 1f;
         counter = timer;
+        //pauseTopRightText.text = "Souls: " + souls.ToString() + "/" + totalSouls.ToString();
     }
 }

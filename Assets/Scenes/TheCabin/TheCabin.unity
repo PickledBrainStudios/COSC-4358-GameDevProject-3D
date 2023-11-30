@@ -16778,6 +16778,7 @@ MonoBehaviour:
   activate:
   - {fileID: 1349271316}
   destroy: []
+  diary: {fileID: 1845817492}
 --- !u!64 &601772059
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -19866,6 +19867,7 @@ MonoBehaviour:
   - {fileID: 9690878}
   - {fileID: 454131056}
   destroy: []
+  diary: {fileID: 1845817492}
 --- !u!64 &690449191
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -23525,8 +23527,9 @@ MonoBehaviour:
     him the life he deserves."
   pickUpClip: {fileID: 8300000, guid: ae09a8c589645004ea5dd5e4d5802af7, type: 3}
   activate:
-  - {fileID: 690449189}
+  - {fileID: 1845817490}
   destroy: []
+  diary: {fileID: 0}
 --- !u!64 &777269579
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25917,6 +25920,7 @@ MonoBehaviour:
   activate:
   - {fileID: 1975266437}
   destroy: []
+  diary: {fileID: 1845817492}
 --- !u!64 &852984154
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -29055,8 +29059,8 @@ MonoBehaviour:
   - The water rushes over me. I can never be cleaned of these sins.
   - 'My son, you are far from this hell now. '
   - In the dark, I sit huddled against the tiles. I try to not see their faces. I
-    try not hear them cry.
-  - I deserve this. I will will never be whole agian. I am sorry, Ethan.
+    try not to hear them cry.
+  - I deserve this. I will never be whole again. I am sorry, Ethan.
   pickUpClip: {fileID: 8300000, guid: ae09a8c589645004ea5dd5e4d5802af7, type: 3}
   isKey: 0
   door: {fileID: 0}
@@ -39447,6 +39451,7 @@ MonoBehaviour:
   - {fileID: 458503950}
   destroy:
   - {fileID: 969989814}
+  diary: {fileID: 1845817492}
 --- !u!64 &1349271318
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -46184,6 +46189,7 @@ MonoBehaviour:
   gameObjs:
   - {fileID: 1045846610}
   - {fileID: 1179650909}
+  - {fileID: 1714022395}
   bathroomManager: {fileID: 1053661872}
   door: {fileID: 8622748769431423543}
   audioSource: {fileID: 57500923}
@@ -56898,6 +56904,7 @@ MonoBehaviour:
   timer: 3
   audioClip: {fileID: 8300000, guid: f1fcb799135c6ea46a1695b1745a8167, type: 3}
   destroyOnComplete: 0
+  timerT: 0
 --- !u!65 &1845817493
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -60722,7 +60729,7 @@ MonoBehaviour:
   introLine: A diary page.
   dialogueLines:
   - "The desperation in the town has reached a fever pitch, and the townsfolk have
-    demanded of me more than I can bare \u2013 they believe that Ethan's life should
+    demanded of me more than I can bear \u2013 they believe that Ethan's life should
     be offered as a sacrifice. "
   - In the darkest of nights, I made a decision that no parent should ever have to
     face. I cannot, and will not, subject Ethan to the horrors that await him if
@@ -60737,6 +60744,7 @@ MonoBehaviour:
   activate: []
   destroy:
   - {fileID: 1845817490}
+  diary: {fileID: 1845817492}
 --- !u!64 &1975266440
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -380,11 +380,11 @@ MonoBehaviour:
   isCharacter: 0
   showImage: 0
   imageTexture: {fileID: 0}
-  introLine: A larger poster showing a scarecrow...
+  introLine: A large poster...
   dialogueLines:
   - 'On the back of the poster it says:'
-  - '"I caughter her. We can''t let ''er squeel on us."'
-  - '"She''s tied in the back her. Begging for her life..."'
+  - '"I caught her. We can''t let ''er squeel on us."'
+  - '"She''s tied in the back here. Begging for her life..."'
   - '"Couldn''t just leave well enough alone..."'
   pickUpClip: {fileID: 8300000, guid: fba497f1e6fe18147bccfbd27a13e071, type: 3}
   isKey: 0
@@ -1821,6 +1821,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1751109673}
     m_Modifications:
+    - target: {fileID: 1936624754773959297, guid: cf2526a796d4a97469542f73df0f1746,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3134284885193731988, guid: cf2526a796d4a97469542f73df0f1746,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -3644,7 +3649,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -5419,7 +5424,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -7051,6 +7056,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6557363345939914129, guid: 92513e6bd6bc591478e7ed7a374979ff,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8176493277792753397, guid: 92513e6bd6bc591478e7ed7a374979ff,
         type: 3}
       propertyPath: m_Name
@@ -7342,7 +7352,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -8103,6 +8113,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1751109673}
     m_Modifications:
+    - target: {fileID: 1936624754773959297, guid: cf2526a796d4a97469542f73df0f1746,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3134284885193731988, guid: cf2526a796d4a97469542f73df0f1746,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -9378,6 +9393,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1751109673}
     m_Modifications:
+    - target: {fileID: 1936624754773959297, guid: cf2526a796d4a97469542f73df0f1746,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3134284885193731988, guid: cf2526a796d4a97469542f73df0f1746,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -12862,6 +12882,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1751109673}
     m_Modifications:
+    - target: {fileID: 1936624754773959297, guid: cf2526a796d4a97469542f73df0f1746,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3134284885193731988, guid: cf2526a796d4a97469542f73df0f1746,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -13366,7 +13391,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -13611,6 +13636,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1751109673}
     m_Modifications:
+    - target: {fileID: 1936624754773959297, guid: cf2526a796d4a97469542f73df0f1746,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3134284885193731988, guid: cf2526a796d4a97469542f73df0f1746,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -14512,6 +14542,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1751109673}
     m_Modifications:
+    - target: {fileID: 1936624754773959297, guid: cf2526a796d4a97469542f73df0f1746,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3134284885193731988, guid: cf2526a796d4a97469542f73df0f1746,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16289,7 +16324,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -19148,7 +19183,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -20162,7 +20197,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}

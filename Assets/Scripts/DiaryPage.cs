@@ -15,6 +15,8 @@ public class DiaryPage : MonoBehaviour, IInteractable
     public GameObject[] activate;
     public GameObject[] destroy;
 
+    public Diary diary;
+
     private AudioSource audioSource;
     private TextMeshProUGUI dialogueText;
     private RawImage rawImage;
@@ -41,6 +43,7 @@ public class DiaryPage : MonoBehaviour, IInteractable
     public void Interact()
     {
         // Display the note when the player interacts with it
+        diary.timerT = 0;
         Time.timeScale = 0;
         audioSource.PlayOneShot(pickUpClip);
         dialogueText.text = ""; // Clear text initially

@@ -8,7 +8,7 @@ public class Diary : MonoBehaviour, IInteractable
     public AudioClip audioClip;
     public bool destroyOnComplete = false;
 
-    private float timerT;
+    public float timerT;
     private TextMeshProUGUI dialogueText;
     private int currentLine = 0;
     private bool activeDialogue = false;
